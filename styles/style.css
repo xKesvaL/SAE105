@@ -1,0 +1,98 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat";
+}
+
+.preload * {
+  transition: none !important;
+}
+
+header {
+  min-height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  outline: solid 1px black;
+}
+
+header .trademark,
+header .pages {
+  display: flex;
+  margin: 0 2vw;
+  gap: 2vw;
+}
+
+header .trademark {
+  font-size: 1.75em;
+  font-weight: 700;
+}
+
+header .trademark a {
+  transition: 0.5s linear;
+}
+
+header .trademark a:hover {
+  text-shadow: 0px 0px 2px black;
+  color: indigo;
+}
+
+header .pages {
+  font-size: 1.5rem;
+}
+
+header .page {
+  transition: 0.5s linear;
+  font-weight: 500;
+}
+
+header:has(.page:hover) > * .page:not(:hover) {
+  opacity: 0.3;
+  color: rgb(22, 22, 22);
+}
+
+header .page:hover {
+  text-shadow: 0px 0px 2px black;
+  color: indigo;
+}
+
+header a {
+  text-decoration: none;
+  color: black;
+}
+
+main {
+  min-height: 70vh;
+}
+
+main > div {
+  outline: solid 1px black;
+  min-height: 100vh;
+}
+
+main > div:first-child {
+  min-height: 85vh;
+}
+
+footer {
+  min-height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  outline: solid 1px black;
+}
+
+footer .author,
+footer .links {
+  display: flex;
+  margin: 0 2vw;
+  gap: 2vw;
+}
+
+footer .links img {
+  height: 6vh;
+}
