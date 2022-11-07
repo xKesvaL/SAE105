@@ -1,7 +1,8 @@
 /* Utilities */
 
 :root {
-  --color-background: rgb(224, 224, 224);
+  --color-background: rgb(234, 234, 234);
+  --color-primary-light: rgb(140, 0, 255);
   --color-primary: indigo;
   --color-primary-dark: rgb(40, 0, 70);
   --color-font: black;
@@ -42,14 +43,22 @@ body {
 
 .enhance {
   color: var(--color-primary);
-  font-weight: 700;
   text-decoration: none;
-  transition: 0.5s linear;
+  font-weight: 700;
+  transition: color 0.5s linear;
+  padding-bottom: 2px;
+  background-image: linear-gradient(var(--color-primary) 0 0);
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  transition: color 0.5s linear, background-size 0.3s,
+    background-position 0s 0.3s;
 }
 
 .enhance:hover {
-  text-decoration: underline;
-  text-shadow: 0px 0px 1px black;
+  color: var(--color-primary-light);
+  background-position: 100% 100%;
+  background-size: 100% 2px;
 }
 
 /* Header */
@@ -86,13 +95,8 @@ header .trademark img {
 }
 
 header .trademark a {
-  transition: 0.5s linear;
-}
-
-header .trademark a:hover {
-  text-decoration: underline;
-  text-shadow: 0px 0px 1px black;
-  color: var(--color-primary);
+  font-weight: 900;
+  font-size: 2.5rem;
 }
 
 header .pages {
@@ -101,7 +105,7 @@ header .pages {
 
 header .page {
   transition: 0.5s linear;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 header:has(.page:hover) > * .page:not(:hover) {
@@ -109,15 +113,22 @@ header:has(.page:hover) > * .page:not(:hover) {
   color: var(--color-font-light);
 }
 
-header .page:hover {
-  text-decoration: underline;
-  text-shadow: 0px 0px 1px black;
-  color: var(--color-primary);
-}
-
-header a {
+header a:not(.logo) {
   text-decoration: none;
   color: var(--color-font);
+  padding-bottom: 2px;
+  background-image: linear-gradient(var(--color-primary) 0 0);
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  transition: 0.5s linear, background-size 0.5s, background-position 0s 0.5s;
+}
+
+header a:hover:not(.logo) {
+  text-shadow: 0px 0px 1px var(--color-primary);
+  color: var(--color-primary-light);
+  background-position: 100% 100%;
+  background-size: 100% 2px;
 }
 
 main {
@@ -141,7 +152,7 @@ main .about .myself-text {
 }
 
 main .about .myself-text h2 {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   font-weight: 900;
   color: var(--color-font-light);
   margin-block: 8vh;
@@ -149,7 +160,7 @@ main .about .myself-text h2 {
 
 main .about .myself-text p {
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-block: 5vh;
 }
 
@@ -170,19 +181,44 @@ main .about .myself-icons .img-me {
   margin-right: 10vw;
 }
 
-main .about .myself-icons .img-me p {
+main .about .myself-icons .img-me div {
   margin: -25px 0 0 0;
-  background: var(--color-primary);
+  background-color: var(--color-primary-dark);
+  box-shadow: 0 80px 100px -80px var(--color-primary-light) inset;
+  transition: 0.2s, background-color 0.5s linear, color 0.5s linear;
   color: var(--color-font-inverted);
   font-weight: 700;
   font-size: 1.5rem;
   padding: 1vh 1vw;
   border-radius: 15px;
+  width: 5vw;
+}
+
+main .about .myself-icons .img-me div p {
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 0.1rem;
 }
 
 main .about .myself-icons .img-me img {
   width: 40vh;
   border-radius: 50%;
+  transition: 0.2s linear;
+}
+
+main .about .myself-icons .img-me div:hover,
+main .about .myself-icons .img-me img:hover + div {
+  background-color: var(--color-primary-light);
+  box-shadow: 0 100px 100px -100px pink inset;
+  width: 12vw;
+}
+
+main .about .myself-icons .img-me:has(div:hover) img,
+main .about .myself-icons .img-me img:hover {
+  border-radius: 0;
 }
 
 footer {
