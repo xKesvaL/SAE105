@@ -47,7 +47,7 @@ body {
   font-weight: 700;
   transition: color 0.5s linear;
   padding-bottom: 2px;
-  background-image: linear-gradient(var(--color-primary) 0 0);
+  background-image: linear-gradient(var(--color-primary-light) 0 0);
   background-position: 0 100%;
   background-size: 0% 2px;
   background-repeat: no-repeat;
@@ -117,7 +117,7 @@ header a:not(.logo) {
   text-decoration: none;
   color: var(--color-font);
   padding-bottom: 2px;
-  background-image: linear-gradient(var(--color-primary) 0 0);
+  background-image: linear-gradient(var(--color-primary-light) 0 0);
   background-position: 0 100%;
   background-size: 0% 2px;
   background-repeat: no-repeat;
@@ -141,6 +141,7 @@ main > div {
   margin: 7.5vh 5vw;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 main > div:first-child {
@@ -191,7 +192,7 @@ main .about .myself-icons .img-me div {
   font-size: 1.5rem;
   padding: 1vh 1vw;
   border-radius: 15px;
-  width: 5vw;
+  width: 96px; /* 5vw on my usual desktop, 1920*0.05 */
 }
 
 main .about .myself-icons .img-me div p {
@@ -204,7 +205,7 @@ main .about .myself-icons .img-me div p {
 }
 
 main .about .myself-icons .img-me img {
-  width: 40vh;
+  width: 25vw;
   border-radius: 50%;
   transition: 0.2s linear;
 }
@@ -213,7 +214,7 @@ main .about .myself-icons .img-me div:hover,
 main .about .myself-icons .img-me img:hover + div {
   background-color: var(--color-primary-light);
   box-shadow: 0 100px 100px -100px pink inset;
-  width: 12vw;
+  width: 230px; /* 12vw on my usual desktop, 1920*0.12 */
 }
 
 main .about .myself-icons .img-me:has(div:hover) img,
@@ -241,4 +242,46 @@ footer .links img,
 footer .links svg {
   height: 6vh;
   width: 6vh;
+}
+
+/* XL-Size 1200px Breakpoint */
+
+@media screen and (max-width: 1200px) {
+  main .about .myself-text {
+    max-width: 50vw;
+  }
+
+  main .about .myself-icons .img-me {
+    margin-right: 2.5vw;
+  }
+}
+
+/* L-Size 1000px Breakpoint */
+@media screen and (max-width: 1000px) {
+  main .about {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main .about .myself-text {
+    max-width: 80vw;
+    margin-inline: 5vw;
+    margin-bottom: 5vw;
+  }
+
+  main .about .myself-icons .img-me img {
+    width: 50vw;
+  }
+}
+
+/* M-Size 800px Breakpoint */
+@media screen and (max-width: 800px) {
+}
+
+/* S-Size 600px Breakpoint */
+@media screen and (max-width: 600px) {
+}
+
+/* XS-Size 300px Breakpoint */
+@media screen and (max-width: 300px) {
 }
