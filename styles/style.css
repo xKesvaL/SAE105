@@ -218,6 +218,7 @@ main .about .myself-text h2 {
   font-weight: 900;
   color: var(--color-font-light);
   margin-block: 8vh;
+  white-space: nowrap;
 }
 
 main .about .myself-text p {
@@ -367,12 +368,26 @@ footer .links svg {
     min-width: 30px;
     min-height: 30px;
   }
+
+  main .about .myself-text h2 {
+    font-size: 7.5vw;
+    margin-top: 1vh;
+    margin-bottom: 4vh;
+  }
+
+  main .about .myself-text p {
+    font-size: 1.25rem;
+  }
 }
 
 /* XS-Size 300px Breakpoint */
 @media screen and (max-width: 300px) {
   header .trademark a {
     font-size: 1.25rem;
+  }
+
+  main .about .myself-text p {
+    font-size: 1rem;
   }
 }
 
