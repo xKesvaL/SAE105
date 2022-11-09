@@ -96,7 +96,8 @@ header .trademark {
 }
 
 header .trademark .logo {
-  height: 10vh;
+  height: 10vw;
+  max-height: 70px;
 }
 
 header .trademark img {
@@ -343,14 +344,27 @@ footer .links svg {
   header .burger {
     display: flex;
   }
+
+  header .trademark,
+  header .pages,
+  header .burger {
+    margin: 0 5vw;
+    gap: 3vw;
+  }
 }
 
 /* S-Size 600px Breakpoint */
 @media screen and (max-width: 600px) {
+  header .trademark a {
+    font-size: 1.75rem;
+  }
 }
 
 /* XS-Size 300px Breakpoint */
 @media screen and (max-width: 300px) {
+  header .trademark a {
+    font-size: 1.25rem;
+  }
 }
 
 /* Mobile device (Phone, Tablet...) */
