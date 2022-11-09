@@ -1,4 +1,4 @@
-/* Utilities */
+/* # Defaults */
 
 :root {
   --color-background: rgb(234, 234, 234);
@@ -37,6 +37,8 @@ body {
   background-color: var(--color-background);
 }
 
+/* # Utilities */
+
 .preload * {
   transition: none !important;
 }
@@ -61,7 +63,11 @@ body {
   background-size: 100% 2px;
 }
 
-/* Header */
+.white-svg {
+  stroke: white !important;
+}
+
+/* --- # Header --- */
 
 header {
   min-height: 15vh;
@@ -73,16 +79,20 @@ header {
 }
 
 header .trademark,
-header .pages {
+header .pages,
+header .burger {
   display: flex;
   margin: 0 2vw;
   gap: 2vw;
   align-items: center;
 }
 
+/* --- ## Trademark --- */
+
 header .trademark {
   font-size: 1.75em;
   font-weight: 700;
+  z-index: 9999;
 }
 
 header .trademark .logo {
@@ -98,6 +108,8 @@ header .trademark a {
   font-weight: 900;
   font-size: 2.5rem;
 }
+
+/* --- ## Pages --- */
 
 header .pages {
   font-size: 1.5rem;
@@ -131,6 +143,46 @@ header a:hover:not(.logo) {
   background-size: 100% 2px;
 }
 
+/* --- ## Burger --- */
+
+header .burger {
+  display: none;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+header .burger svg {
+  width: 6vh;
+  height: 6vh;
+  stroke: black;
+  stroke-width: 2;
+  transition: stroke 1s linear;
+}
+
+/* ## Utility Classes */
+
+.burger-menu {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-primary);
+  overflow: hidden;
+  top: 0;
+  left: 100%;
+  transition: 1s ease-in-out;
+}
+
+.burger-shown {
+  left: 0%;
+}
+
+.burger-header {
+  color: var(--color-font-inverted) !important;
+}
+
+/* --- # Main --- */
+
 main {
   min-height: 70vh;
 }
@@ -144,9 +196,13 @@ main > div {
   align-items: center;
 }
 
+/* --- ## About --- */
+
 main > div:first-child {
   min-height: 75vh;
 }
+
+/* --- ### Myself | Left-Part (Text) --- */
 
 main .about .myself-text {
   max-width: 40vw;
@@ -164,6 +220,8 @@ main .about .myself-text p {
   font-size: 1.5rem;
   margin-block: 5vh;
 }
+
+/* --- ### Myself | Right-Part (Img) --- */
 
 main .about .myself-icons {
   display: flex;
@@ -222,6 +280,8 @@ main .about .myself-icons .img-me img:hover {
   border-radius: 0;
 }
 
+/* --- # Footer --- */
+
 footer {
   min-height: 15vh;
   display: flex;
@@ -276,6 +336,13 @@ footer .links svg {
 
 /* M-Size 800px Breakpoint */
 @media screen and (max-width: 800px) {
+  header .pages {
+    display: none;
+  }
+
+  header .burger {
+    display: flex;
+  }
 }
 
 /* S-Size 600px Breakpoint */
@@ -284,4 +351,8 @@ footer .links svg {
 
 /* XS-Size 300px Breakpoint */
 @media screen and (max-width: 300px) {
+}
+
+/* Mobile device (Phone, Tablet...) */
+@media only screen and (hover: none) and (pointer: coarse) {
 }
