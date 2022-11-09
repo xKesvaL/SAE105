@@ -1,7 +1,7 @@
 /* # Defaults */
 
 :root {
-  --color-background: rgb(234, 234, 234);
+  --color-background: rgb(240, 240, 240);
   --color-primary-light: rgb(140, 0, 255);
   --color-primary: indigo;
   --color-primary-dark: rgb(40, 0, 70);
@@ -176,6 +176,25 @@ header .burger svg {
   top: 0;
   left: 100%;
   transition: 1s ease-in-out;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10vh;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+body:has(.burger-menu.burger-shown) header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.burger-menu a {
+  color: var(--color-font-inverted);
+  text-decoration: none;
 }
 
 .burger-shown {
@@ -378,6 +397,20 @@ footer .links svg {
   main .about .myself-text p {
     font-size: 1.25rem;
   }
+
+  main .about .myself-icons .img-me img {
+    border-radius: 30px !important;
+    padding: 4vh 2vw;
+  }
+
+  main .about .myself-icons .img-me div {
+    width: 36vw !important;
+    margin-top: -15px;
+  }
+
+  main .about .myself-icons .img-me div p {
+    font-size: 4vw;
+  }
 }
 
 /* XS-Size 300px Breakpoint */
@@ -393,4 +426,13 @@ footer .links svg {
 
 /* Mobile device (Phone, Tablet...) */
 @media only screen and (hover: none) and (pointer: coarse) {
+  main .about .myself-icons .img-me div {
+    background-color: var(--color-primary-light);
+    box-shadow: 0 100px 100px -100px pink inset;
+    width: 230px; /* 12vw on my usual desktop, 1920*0.12 */
+  }
+
+  main .about .myself-icons .img-me img {
+    border-radius: 15px;
+  }
 }
