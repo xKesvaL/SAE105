@@ -1,13 +1,29 @@
 /* # Defaults */
 
 :root {
+  /* Theme-Dependant */
+  --color-background-light: white;
   --color-background: rgb(240, 240, 240);
-  --color-primary-light: rgb(140, 0, 255);
-  --color-primary: indigo;
-  --color-primary-dark: rgb(40, 0, 70);
   --color-font: black;
   --color-font-light: rgb(32, 32, 32);
   --color-font-inverted: white;
+  --color-primary-light: rgb(140, 0, 255);
+  --color-primary: indigo;
+  --color-primary-dark: rgb(40, 0, 70);
+  /* Non-Theme-Dependant */
+  --color-theme-light: grey;
+  --color-theme-dark: rgb(32, 32, 32);
+  --color-theme-blue: rgb(25, 0, 160);
+  /* Static Variables
+  Basically a copy of the first variables but these don't ever change. */
+  --st-color-background-light: white;
+  --st-color-background: rgb(240, 240, 240);
+  --st-color-font: black;
+  --st-color-font-light: rgb(32, 32, 32);
+  --st-color-font-inverted: white;
+  --st-color-primary-light: rgb(140, 0, 255);
+  --st-color-primary: indigo;
+  --st-color-primary-dark: rgb(40, 0, 70);
 }
 
 html {
@@ -19,7 +35,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: white;
+  background-color: var(--color-background-light);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -35,6 +51,8 @@ body {
   padding: 0;
   font-family: "Montserrat";
   background-color: var(--color-background);
+  color: var(--color-font);
+  transition: color 0.5s, background-color 0.5s;
 }
 
 /* # Utilities */
@@ -65,6 +83,83 @@ body {
 
 .white-svg {
   stroke: white !important;
+}
+
+/* This is an utility class for hiding things without messing up accessibility. 
+It is still in the HTML and a screen reader will read it, while display: none; breaks that. */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* --- # Theme Switcher --- */
+
+.root {
+  overflow: hidden;
+}
+
+.theme-switcher fieldset {
+  border: 0;
+  background: var(--color-background-light);
+  display: flex;
+  gap: 1vw;
+  width: 13vw;
+  padding: 2vh 1.5vw;
+  border-radius: 15px 0 0 15px;
+  position: fixed;
+  justify-content: right;
+  left: 90%;
+  overflow: hidden;
+  top: 12%;
+  align-items: center;
+}
+
+.theme-switcher fieldset input[type="radio"] {
+  appearance: none;
+  width: 1.5vw;
+  height: 1.5vw;
+  outline: 2px solid var(--radio-color, currentColor);
+  outline-offset: 2px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.theme-switcher > fieldset svg {
+  width: 2.5vw;
+  height: 2.5vw;
+  margin-right: auto;
+}
+
+.theme-switcher input[type="radio"]:checked {
+  background-color: var(--radio-color);
+}
+
+.theme-switcher input[type="radio"]#light {
+  --radio-color: var(--color-theme-light);
+}
+
+.theme-switcher input[type="radio"]#dark {
+  --radio-color: var(--color-theme-dark);
+}
+
+.theme-switcher input[type="radio"]#blue {
+  --radio-color: var(--color-theme-blue);
+}
+
+:root:has(#dark:checked) {
+  --color-background-light: #181a1b;
+  --color-background: #202325;
+  --color-font: white;
+  --color-font-light: rgb(240, 240, 240);
+  --color-font-inverted: black;
+  --color-primary-light: #c371ff;
+  --color-primary: #971aff;
+  --color-primary-dark: #200038;
 }
 
 /* --- # Header --- */
@@ -159,7 +254,7 @@ header .burger svg {
   min-height: 45px;
   max-width: 55px;
   max-height: 55px;
-  stroke: black;
+  stroke: var(--color-font);
   stroke-width: 2;
   transition: stroke 1s linear;
 }
@@ -255,7 +350,7 @@ main .about .myself-icons {
 }
 
 main .about .myself-icons .img-me {
-  background-color: white;
+  background-color: var(--color-background-light);
   padding: 6vh 3vw;
   border-radius: 25px;
   display: flex;
