@@ -9,7 +9,7 @@
   --color-font-inverted: white;
   --color-primary-light: rgb(140, 0, 255);
   --color-primary: indigo;
-  --color-primary-dark: rgb(40, 0, 70);
+  --color-primary-dark: #46007b;
   /* Non-Theme-Dependant */
   --color-theme-light: grey;
   --color-theme-dark: rgb(32, 32, 32);
@@ -23,7 +23,7 @@
   --st-color-font-inverted: white;
   --st-color-primary-light: rgb(140, 0, 255);
   --st-color-primary: indigo;
-  --st-color-primary-dark: rgb(40, 0, 70);
+  --st-color-primary-dark: #46007b;
 }
 
 html {
@@ -52,7 +52,11 @@ body {
   font-family: "Montserrat";
   background-color: var(--color-background);
   color: var(--color-font);
-  transition: color 0.5s, background-color 0.5s;
+  transition: color 0.5s, background-color 0.5s, stroke 0.5s;
+}
+
+body:has(.header-placeholder.active) {
+  overflow: hidden;
 }
 
 /* # Utilities */
@@ -97,6 +101,16 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   width: 1px;
 }
 
+.header-placeholder {
+  display: none;
+}
+
+.header-placeholder.active {
+  display: block;
+  height: 15vh;
+  width: 100vw;
+}
+
 /* --- # Theme Switcher --- */
 
 .root {
@@ -113,30 +127,39 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   border-radius: 15px 0 0 15px;
   position: fixed;
   justify-content: right;
-  left: 90%;
+  left: 95%;
   overflow: hidden;
   top: 12%;
   align-items: center;
+  transition: 0.5s ease-in-out;
 }
 
 .theme-switcher fieldset input[type="radio"] {
   appearance: none;
   width: 1.5vw;
   height: 1.5vw;
-  outline: 2px solid var(--radio-color, currentColor);
+  background-color: var(--radio-color, currentColor);
   outline-offset: 2px;
   border-radius: 50%;
   cursor: pointer;
 }
 
-.theme-switcher > fieldset svg {
+.theme-switcher fieldset svg {
   width: 2.5vw;
   height: 2.5vw;
+  stroke: var(--color-font);
+  stroke-width: 1;
   margin-right: auto;
+}
+
+.theme-switcher fieldset:hover,
+.theme-switcher fieldset:focus {
+  left: 84%;
 }
 
 .theme-switcher input[type="radio"]:checked {
   background-color: var(--radio-color);
+  outline: 2px solid var(--color-font, currentColor);
 }
 
 .theme-switcher input[type="radio"]#light {
@@ -159,7 +182,18 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   --color-font-inverted: black;
   --color-primary-light: #c371ff;
   --color-primary: #971aff;
-  --color-primary-dark: #200038;
+  --color-primary-dark: rgb(46, 0, 81);
+}
+
+:root:has(#blue:checked) {
+  --color-background-light: #18183e;
+  --color-background: #20233e;
+  --color-font: white;
+  --color-font-light: rgb(240, 240, 240);
+  --color-font-inverted: black;
+  --color-primary-light: #c371ff;
+  --color-primary: #971aff;
+  --color-primary-dark: #46007b;
 }
 
 /* --- # Header --- */
@@ -255,7 +289,7 @@ header .burger svg {
   max-width: 55px;
   max-height: 55px;
   stroke: var(--color-font);
-  stroke-width: 2;
+  stroke-width: 1;
   transition: stroke 1s linear;
 }
 
@@ -266,7 +300,7 @@ header .burger svg {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-dark);
   overflow: hidden;
   top: 0;
   left: 100%;
@@ -288,8 +322,9 @@ body:has(.burger-menu.burger-shown) header {
 }
 
 .burger-menu a {
-  color: var(--color-font-inverted);
+  color: var(--st-color-font-inverted);
   text-decoration: none;
+  font-size: 2.5rem;
 }
 
 .burger-shown {
@@ -297,7 +332,7 @@ body:has(.burger-menu.burger-shown) header {
 }
 
 .burger-header {
-  color: var(--color-font-inverted) !important;
+  color: var(--st-color-font-inverted) !important;
 }
 
 /* --- # Main --- */
@@ -358,6 +393,7 @@ main .about .myself-icons .img-me {
   align-items: center;
   margin-top: -5vh;
   margin-right: 10vw;
+  transition: 0.25s linear;
 }
 
 main .about .myself-icons .img-me div {
@@ -380,6 +416,7 @@ main .about .myself-icons .img-me div p {
   text-align: center;
   white-space: nowrap;
   letter-spacing: 0.1rem;
+  color: var(--st-color-font-inverted);
 }
 
 main .about .myself-icons .img-me img {
@@ -434,6 +471,28 @@ footer .links svg {
   main .about .myself-icons .img-me {
     margin-right: 2.5vw;
   }
+
+  .theme-switcher fieldset {
+    gap: 1vw;
+    width: 13vw;
+    top: 15%;
+    left: 94.5%;
+  }
+
+  .theme-switcher fieldset:hover,
+  .theme-switcher fieldset:focus {
+    left: 83%;
+  }
+
+  .theme-switcher fieldset svg {
+    width: 3vw;
+    height: 3vw;
+  }
+
+  .theme-switcher fieldset input[type="radio"] {
+    width: 2vw;
+    height: 2vw;
+  }
 }
 
 /* L-Size 1000px Breakpoint */
@@ -452,6 +511,28 @@ footer .links svg {
   main .about .myself-icons .img-me img {
     width: 50vw;
   }
+
+  .theme-switcher fieldset {
+    gap: 1vw;
+    width: 13vw;
+    top: 15%;
+    left: 93.25%;
+  }
+
+  .theme-switcher fieldset:hover,
+  .theme-switcher fieldset:focus {
+    left: 80%;
+  }
+
+  .theme-switcher fieldset svg {
+    width: 4vw;
+    height: 4vw;
+  }
+
+  .theme-switcher fieldset input[type="radio"] {
+    width: 2.5vw;
+    height: 2.5vw;
+  }
 }
 
 /* M-Size 800px Breakpoint */
@@ -469,6 +550,28 @@ footer .links svg {
   header .burger {
     margin: 0 5vw;
     gap: 3vw;
+  }
+
+  .theme-switcher fieldset {
+    gap: 1vw;
+    width: 13vw;
+    top: 15%;
+    left: 92.5%;
+  }
+
+  .theme-switcher fieldset:hover,
+  .theme-switcher fieldset:focus {
+    left: 77%;
+  }
+
+  .theme-switcher fieldset svg {
+    width: 5vw;
+    height: 5vw;
+  }
+
+  .theme-switcher fieldset input[type="radio"] {
+    width: 3vw;
+    height: 3vw;
   }
 }
 
@@ -505,6 +608,29 @@ footer .links svg {
 
   main .about .myself-icons .img-me div p {
     font-size: 4vw;
+  }
+
+  .theme-switcher fieldset {
+    gap: 1vw;
+    padding: 1.5vh 1.5vw;
+    width: 13vw;
+    top: 15%;
+    left: 91%;
+  }
+
+  .theme-switcher fieldset:hover,
+  .theme-switcher fieldset:focus {
+    left: 71.5%;
+  }
+
+  .theme-switcher fieldset svg {
+    width: 6vw;
+    height: 6vw;
+  }
+
+  .theme-switcher fieldset input[type="radio"] {
+    width: 4vw;
+    height: 4vw;
   }
 }
 
