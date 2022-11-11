@@ -386,6 +386,7 @@ main .about .myself-icons {
 
 main .about .myself-icons .discover-me {
   display: none;
+  text-align: center;
 }
 
 main .about .myself-icons .img-me {
@@ -522,7 +523,7 @@ footer .links svg {
   }
 
   main .about .myself-icons {
-    margin-top: -10vw;
+    margin-top: 5vh;
     gap: 6vw;
     margin-left: auto;
     margin-right: 5vw;
@@ -613,6 +614,7 @@ footer .links svg {
     position: relative;
     top: -8vw;
     margin-right: 4vw;
+    align-items: flex-start;
   }
 
   main .about .myself-icons .img-me {
@@ -627,7 +629,6 @@ footer .links svg {
 /* M-Size 800px Breakpoint + 1000px height bp */
 @media screen and (max-width: 800px) and (max-height: 1000px) {
   main .about .myself-icons {
-    margin-top: none;
     position: relative;
     top: -2vw;
   }
@@ -642,6 +643,11 @@ footer .links svg {
   header .burger svg {
     min-width: 30px;
     min-height: 30px;
+  }
+
+  main .about {
+    justify-content: left;
+    margin-top: 10vw;
   }
 
   main .about .myself-text h2 {
@@ -706,6 +712,10 @@ footer .links svg {
   main .about .myself-text p {
     font-size: 1rem;
   }
+
+  main .about .myself-icons .discover-me {
+    font-size: 1.25rem;
+  }
 }
 
 /* XS-Size 300px Breakpoint */
@@ -715,6 +725,10 @@ footer .links svg {
   }
 
   main .about .myself-text p {
+    font-size: 1rem;
+  }
+
+  main .about .myself-icons .discover-me {
     font-size: 1rem;
   }
 }
