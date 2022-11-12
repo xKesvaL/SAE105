@@ -1,4 +1,18 @@
 const themes = document.querySelectorAll(`[name="theme"]`);
+const scrollTopButton = document.querySelector(".back-to-top");
+
+scrollTopButton.addEventListener("click", scrollToTop);
+
+window.addEventListener("scroll", () => {
+  if (
+    document.body.scrollTop > 300 ||
+    document.documentElement.scrollTop > 300
+  ) {
+    scrollTopButton.classList.add("active");
+  } else {
+    scrollTopButton.classList.remove("active");
+  }
+});
 
 window.addEventListener("load", () => {
   themes.forEach((theme) => {
@@ -14,6 +28,10 @@ window.addEventListener("load", () => {
   // Always last : activates all transitions.
   document.querySelector("body").classList.remove("preload");
 });
+
+function scrollToTop() {
+  window.scroll(0, 0);
+}
 
 const storeTheme = (theme) => {
   localStorage.setItem("theme", theme);

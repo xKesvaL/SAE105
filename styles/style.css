@@ -10,6 +10,7 @@
   --color-primary-light: rgb(140, 0, 255);
   --color-primary: indigo;
   --color-primary-dark: #46007b;
+  --theme-invert: 0%;
   /* Non-Theme-Dependant */
   --color-theme-light: grey;
   --color-theme-dark: rgb(32, 32, 32);
@@ -111,6 +112,35 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   width: 100vw;
 }
 
+/* --- # Back to top button --- */
+
+.back-to-top {
+  background: var(--color-primary);
+  border-radius: 25%;
+  position: fixed;
+  bottom: 3%;
+  right: 1.5%;
+  width: 4vw;
+  height: 4vw;
+  transition: 0.5s linear;
+  z-index: 99;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.back-to-top svg {
+  stroke: var(--st-color-font-inverted);
+  stroke-width: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.back-to-top.active {
+  opacity: 1;
+  cursor: pointer;
+  pointer-events: all;
+}
+
 /* --- # Theme Switcher --- */
 
 .root {
@@ -132,6 +162,7 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   top: 12%;
   align-items: center;
   transition: 0.5s ease-in-out;
+  z-index: 99;
 }
 
 .theme-switcher fieldset input[type="radio"] {
@@ -183,6 +214,7 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   --color-primary-light: #c371ff;
   --color-primary: #971aff;
   --color-primary-dark: rgb(46, 0, 81);
+  --theme-invert: 100%;
 }
 
 :root:has(#blue:checked) {
@@ -194,6 +226,7 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   --color-primary-light: #c371ff;
   --color-primary: #971aff;
   --color-primary-dark: #46007b;
+  --theme-invert: 100%;
 }
 
 /* --- # Header --- */
@@ -227,6 +260,10 @@ header .trademark {
 header .trademark .logo {
   height: 10vw;
   max-height: 70px;
+}
+
+header .trademark .logo img {
+  width: 100%;
 }
 
 header .trademark img {
@@ -311,6 +348,7 @@ header .burger svg {
   gap: 10vh;
   font-size: 2rem;
   font-weight: 700;
+  z-index: 999;
 }
 
 body:has(.burger-menu.burger-shown) header {
@@ -318,7 +356,7 @@ body:has(.burger-menu.burger-shown) header {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999;
+  z-index: 9999;
 }
 
 .burger-menu a {
@@ -426,6 +464,7 @@ main .about .myself-icons .img-me div p {
 
 main .about .myself-icons .img-me img {
   width: 25vw;
+  height: 25vw;
   border-radius: 50%;
   transition: 0.2s linear;
 }
@@ -460,10 +499,23 @@ footer .links {
   gap: 2vw;
 }
 
+footer .links {
+  margin-right: 7vw;
+}
+
 footer .links img,
 footer .links svg {
   height: 6vh;
   width: 6vh;
+}
+
+footer .links img {
+  filter: invert(var(--theme-invert));
+}
+
+footer .links svg {
+  stroke: var(--color-font);
+  stroke-width: 1;
 }
 
 /* XL-Size 1200px Breakpoint */
@@ -542,6 +594,7 @@ footer .links svg {
   main .about .myself-icons .img-me img {
     border-radius: 15px;
     width: 25vw;
+    height: 25vw;
   }
 
   main .about .myself-icons .img-me div {
@@ -568,6 +621,15 @@ footer .links svg {
   .theme-switcher fieldset input[type="radio"] {
     width: 2.5vw;
     height: 2.5vw;
+  }
+
+  .back-to-top {
+    width: 60px;
+    height: 60px;
+  }
+
+  footer .links {
+    margin-right: 10vw;
   }
 }
 
@@ -623,6 +685,16 @@ footer .links svg {
 
   main .about .myself-icons .img-me img {
     width: 20vh;
+    height: 20vh;
+  }
+
+  .back-to-top {
+    width: 55px;
+    height: 55px;
+  }
+
+  footer .links {
+    margin-right: 12vw;
   }
 }
 
@@ -672,6 +744,7 @@ footer .links svg {
     border-radius: 30px !important;
     padding: none;
     width: 25vw;
+    height: 25vw;
   }
 
   main .about .myself-icons .img-me div {
@@ -705,6 +778,16 @@ footer .links svg {
     width: 5vw;
     height: 5vw;
   }
+
+  .back-to-top {
+    right: 4%;
+    width: 45px;
+    height: 45px;
+  }
+
+  footer .links {
+    margin-right: 18vw;
+  }
 }
 
 /* S-Size 600px Breakpoint + 800px height bp */
@@ -730,6 +813,12 @@ footer .links svg {
 
   main .about .myself-icons .discover-me {
     font-size: 1rem;
+  }
+
+  .back-to-top {
+    right: 5%;
+    width: 35px;
+    height: 35px;
   }
 }
 
