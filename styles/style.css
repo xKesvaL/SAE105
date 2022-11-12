@@ -116,16 +116,21 @@ It is still in the HTML and a screen reader will read it, while display: none; b
 
 .back-to-top {
   background: var(--color-primary);
-  border-radius: 25%;
+  border-radius: 35%;
   position: fixed;
   bottom: 3%;
   right: 1.5%;
   width: 4vw;
   height: 4vw;
-  transition: 0.5s linear;
+  transition: 0.25s linear;
   z-index: 99;
   opacity: 0;
   pointer-events: none;
+}
+
+.back-to-top:hover {
+  background: var(--st-color-primary-dark);
+  border-radius: 5%;
 }
 
 .back-to-top svg {
