@@ -11,11 +11,29 @@ Yes, that's my portfolio's repository and this is also where you can learn more 
 - [KesvaL's portfolio](#kesvals-portfolio)
   - [Summary](#summary)
   - [Website Code](#website-code)
+    - [Sources](#sources)
   - [Language](#language)
+
+---
 
 ## Website Code
 
 I do not own every bit of the code you see in the repo, as some comes from other open-source websites. Beware of that fact if you'd ever wanna fork the repository.
+
+### Sources
+
+The icons you see on the website are from :
+
+- iconsvg.xyz for every SVG icon
+- iconinder.com for every PNG icon from projects
+- github.com for the github PNG in the footer
+
+Credits to the people for some of the code :
+
+- Jouan Marcel (Futuristic Hover Projects)
+- Kevin Powell (Theme Switcher)
+
+---
 
 ## Language
 
