@@ -514,7 +514,7 @@ main .projects .card-hover:hover .pj-text {
   opacity: 1;
 }
 
-main .projects .card-hover:hover div {
+main .projects .card-hover:hover a {
   opacity: 1;
   transition-delay: 0s;
 }
