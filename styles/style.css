@@ -571,31 +571,31 @@ main .projects .card-hover .pj-text {
 
 main .projects .card-hover .left-2 {
   transform: translateX(-60px) translateZ(-50px) rotateY(-10deg);
-  background-image: url(/img/icons/audit.png);
+  background-image: url(/img/icons/audit.webp);
   background-size: 40%;
 }
 
 main .projects .card-hover .left-1 {
   transform: translateX(-30px) translateZ(-25px) rotateY(-5deg);
-  background-image: url(/img/icons/communication.png);
+  background-image: url(/img/icons/communication.webp);
   background-size: 35%;
 }
 
 main .projects .card-hover .center {
   opacity: 1;
-  background-image: url(/img/icons/design.png);
+  background-image: url(/img/icons/design.webp);
   background-size: 40%;
 }
 
 main .projects .card-hover .right-1 {
   transform: translateX(30px) translateZ(-25px) rotateY(5deg);
-  background-image: url(/img/icons/audiovisuel.png);
+  background-image: url(/img/icons/audiovisuel.webp);
   background-size: 45%;
 }
 
 main .projects .card-hover .right-2 {
   transform: translateX(60px) translateZ(-50px) rotateY(10deg);
-  background-image: url(/img/icons/more.png);
+  background-image: url(/img/icons/more.webp);
   background-size: 35%;
 }
 
