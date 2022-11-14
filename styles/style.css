@@ -5,6 +5,7 @@
   --color-background-light: white;
   --color-background: rgb(240, 240, 240);
   --color-font: black;
+  --color-font-ultralight: rgb(70, 70, 70);
   --color-font-light: rgb(32, 32, 32);
   --color-font-inverted: white;
   --color-primary-light: rgb(140, 0, 255);
@@ -15,6 +16,9 @@
   --color-theme-light: grey;
   --color-theme-dark: rgb(32, 32, 32);
   --color-theme-blue: rgb(25, 0, 160);
+  --color-logo-nodejs: #3c873a;
+  --color-logo-html: #f06529;
+  --color-others-royalblue: #4169e1;
   /* Static Variables
   Basically a copy of the first variables but these don't ever change. */
   --st-color-background-light: white;
@@ -50,7 +54,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: "Montserrat", "Roboto", Arial, sans-serif;
   background-color: var(--color-background);
   color: var(--color-font);
   transition: color 0.5s, background-color 0.5s, stroke 0.5s;
@@ -78,10 +82,11 @@ body:has(.header-placeholder.active) {
   background-repeat: no-repeat;
   transition: color 0.5s linear, background-size 0.3s,
     background-position 0s 0.3s;
+  cursor: pointer;
 }
 
 .enhance:hover {
-  color: var(--color-primary-light);
+  color: var(--color-primary-light) !important;
   background-position: 100% 100%;
   background-size: 100% 2px;
 }
@@ -130,7 +135,7 @@ It is still in the HTML and a screen reader will read it, while display: none; b
 
 .back-to-top:hover {
   background: var(--st-color-primary-dark);
-  border-radius: 5%;
+  border-radius: 15%;
 }
 
 .back-to-top svg {
@@ -178,6 +183,11 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   outline-offset: 2px;
   border-radius: 50%;
   cursor: pointer;
+  transition: 0.5s linear;
+}
+
+.theme-switcher fieldset input[type="radio"]:hover {
+  outline: 1px solid var(--color-font, currentColor);
 }
 
 .theme-switcher fieldset svg {
@@ -214,6 +224,7 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   --color-background-light: #181a1b;
   --color-background: #202325;
   --color-font: white;
+  --color-font-ultralight: rgb(170, 170, 170);
   --color-font-light: rgb(240, 240, 240);
   --color-font-inverted: black;
   --color-primary-light: #c371ff;
@@ -226,6 +237,7 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   --color-background-light: #18183e;
   --color-background: #20233e;
   --color-font: white;
+  --color-font-ultralight: rgb(170, 170, 170);
   --color-font-light: rgb(240, 240, 240);
   --color-font-inverted: black;
   --color-primary-light: #c371ff;
@@ -269,11 +281,14 @@ header .trademark .logo {
 
 header .trademark .logo img {
   width: 100%;
-}
-
-header .trademark img {
   height: 100%;
   border-radius: 50%;
+  transition: 0.5s;
+}
+
+header .trademark .logo img:hover {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 header .trademark a {
@@ -386,7 +401,7 @@ main {
 
 main > div {
   /* outline: solid 1px black; */
-  min-height: 100vh;
+  min-height: 75vh;
   margin: 7.5vh 5vw;
   display: flex;
   justify-content: space-between;
@@ -492,6 +507,128 @@ main .projects {
   justify-content: center;
   overflow: hidden;
 }
+
+/* --- ### Home Projects */
+
+main .projects.home {
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+main .projects.home a {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-font);
+}
+
+main .projects.home .list {
+  display: flex;
+  justify-content: center;
+  gap: 3vw;
+}
+
+main .projects.home .project {
+  width: 23vw;
+  height: 15vw;
+  padding: 2vw 2vw;
+  border-radius: 25px;
+  background-color: var(--color-background-light);
+}
+
+main .projects.home .project.see-more {
+  position: relative;
+}
+
+main .projects.home .project.see-more .text,
+main .projects.home .project.see-more .img {
+  filter: blur(2px);
+  transition: 0.5s linear;
+}
+
+main .projects.home .project.see-more::before {
+  content: "Découvrir +";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  filter: none;
+  background-color: var(--color-primary);
+  padding: 1vw 1vw;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  opacity: 1;
+  cursor: pointer;
+  z-index: 99;
+  transition: 0.5s linear;
+  color: var(--st-color-font-inverted);
+}
+
+main .projects.home .project.see-more:hover::before {
+  background-color: var(--color-primary-dark);
+  border-radius: 3px;
+}
+
+main .projects.home .project.see-more:hover .text,
+main .projects.home .project.see-more:hover .img {
+  filter: blur(5px);
+}
+
+main .projects.home .project .text {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+main .projects.home .project .text .type {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 4vh;
+}
+
+main .projects.home .project:first-child .text .type {
+  color: var(--color-logo-nodejs);
+}
+
+main .projects.home .project:nth-child(2) .text .type {
+  color: var(--color-logo-html);
+}
+
+main .projects.home .project:nth-child(3) .text .type {
+  font-weight: 900;
+  color: var(--color-others-royalblue);
+}
+
+main .projects.home .project .text .title {
+  font-weight: 300;
+  font-size: 1.4rem;
+  margin-bottom: 2vh;
+}
+
+main .projects.home .project .text .desc {
+  color: var(--color-font-ultralight);
+  font-weight: 500;
+}
+
+main .projects.home .project .text .logo {
+  margin-top: auto;
+  height: 2vw;
+  width: 2vw;
+  gap: 1vw;
+  display: flex;
+}
+
+main .projects.home .project:nth-child(3) .text .logo img:first-child {
+  width: 150%;
+}
+
+main .projects.home .project .text .logo img {
+  width: 100%;
+  height: 100%;
+}
+
+/* --- ### Projects Page */
 
 main .projects .card-hover {
   display: flex;

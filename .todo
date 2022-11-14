@@ -1,9 +1,14 @@
 # Main page
+
 -> Move projets hover animation over to projects/index.html
-    -> Instead just have a slick simple design for 2/3 projects with [More...] that redirects onto projects/index.html
-    -> In projets/index.html have 2 types of projects :
-        -> Personnal projects in which i'll list some of my great achievings (none)
-        -> School projects such as SAÉs (french but means learning and evaluation situation) with critical learnings
-            -> That's what school wants.
+-> Instead just have a slick simple design for 2/3 projects with [More...] that redirects onto projects/index.html
+-> In projets/index.html have 2 types of projects :
+-> Personnal projects in which i'll list some of my great achievings (none)
+-> School projects such as SAÉs (french but means learning and evaluation situation) with critical learnings
+-> That's what school wants.
 -> Remove contact from main page
-    -> Instead just have it in it's own page (that can be accessed from footer or header)
+-> Instead just have it in it's own page (that can be accessed from footer or header)
+
+## Images
+
+-> Put images to size (logos especially) and put them into next-gen formats (WEBP)

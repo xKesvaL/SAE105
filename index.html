@@ -22,14 +22,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Roboto:wght@900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Roboto:wght@500;900&display=swap"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript
       ><link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Roboto:wght@900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Roboto:wght@500;900&display=swap"
     /></noscript>
   </head>
   <body class="preload">
@@ -108,6 +108,7 @@
       </div>
     </header>
     <main>
+      <!-- LAYOUT END -->
       <div class="about">
         <div class="myself-text">
           <h2>👋 Jordan "KesvaL"</h2>
@@ -148,27 +149,47 @@
           </div>
         </div>
       </div>
-      <div class="projects" id="projects">
-        <div class="card-hover">
-          <a class="left-2">
-            <div class="pj-text">Audit</div>
-          </a>
-          <a class="left-1">
-            <div class="pj-text">Communication</div>
-          </a>
-          <a class="center">
-            <div class="click-me">Clique pour voir mes projets</div>
-            <div class="pj-text">Design</div>
-          </a>
-          <a class="right-1">
-            <div class="pj-text">Audiovisuel</div>
-          </a>
-          <a class="right-2">
-            <div class="pj-text">Découvrir + ...</div>
-          </a>
+      <div class="projects home" id="projects">
+        <a href="/projects" class="enhance">Mes projets</a>
+        <div class="list">
+          <div class="project">
+            <div class="text">
+              <div class="type">NodeJS</div>
+              <div class="title">Robot Discord <br />Automatisé</div>
+              <div class="desc">Back-end</div>
+              <div class="logo">
+                <img src="/img/logo/nodejs-logo.png" alt="" />
+              </div>
+            </div>
+            <div class="img"></div>
+          </div>
+          <div class="project">
+            <div class="text">
+              <div class="type">HTML/CSS/JS</div>
+              <div class="title">Portfolio <br />Responsive</div>
+              <div class="desc">Front-End</div>
+              <div class="logo">
+                <img src="/img/logo/html-logo.png" alt="" />
+                <img src="/img/logo/css-logo.png" alt="" />
+                <img src="/img/logo/js-logo.png" alt="" />
+              </div>
+            </div>
+            <div class="img"></div>
+          </div>
+          <div class="project see-more">
+            <div class="text">
+              <div class="type">PHP & HTML+</div>
+              <div class="title">Autres Projets <br />Découvrir +</div>
+              <div class="desc">Fullstack + ...</div>
+              <div class="logo">
+                <img src="/img/logo/php-logo.png" alt="" />
+              </div>
+            </div>
+            <div class="img"></div>
+          </div>
         </div>
       </div>
-      <div class="contact" id="contact">vas-y contacte moi dis moi tout</div>
+      <!-- LAYOUT START -->
     </main>
     <footer>
       <div class="author">Jordan Abeddou<br />Fullstack Developer</div>
