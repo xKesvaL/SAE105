@@ -2,16 +2,16 @@
 
 :root {
   /* Theme-Dependant */
-  --color-background-light: white;
-  --color-background: rgb(240, 240, 240);
-  --color-font: black;
-  --color-font-ultralight: rgb(70, 70, 70);
-  --color-font-light: rgb(32, 32, 32);
-  --color-font-inverted: white;
-  --color-primary-light: rgb(140, 0, 255);
-  --color-primary: rgb(86, 0, 147);
-  --color-primary-dark: #2e0052;
-  --theme-invert: 0%;
+  --color-background-light: #181a1b;
+  --color-background: #202325;
+  --color-font: white;
+  --color-font-ultralight: rgb(170, 170, 170);
+  --color-font-light: rgb(240, 240, 240);
+  --color-font-inverted: black;
+  --color-primary-light: #c371ff;
+  --color-primary: #971aff;
+  --color-primary-dark: rgb(46, 0, 81);
+  --theme-invert: 100%;
   /* Non-Theme-Dependant */
   --color-theme-light: grey;
   --color-theme-dark: rgb(32, 32, 32);
@@ -221,17 +221,17 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   --radio-color: var(--color-theme-blue);
 }
 
-:root:has(#dark:checked) {
-  --color-background-light: #181a1b;
-  --color-background: #202325;
-  --color-font: white;
-  --color-font-ultralight: rgb(170, 170, 170);
-  --color-font-light: rgb(240, 240, 240);
-  --color-font-inverted: black;
-  --color-primary-light: #c371ff;
-  --color-primary: #971aff;
-  --color-primary-dark: rgb(46, 0, 81);
-  --theme-invert: 100%;
+:root:has(#light:checked) {
+  --color-background-light: white;
+  --color-background: rgb(240, 240, 240);
+  --color-font: black;
+  --color-font-ultralight: rgb(70, 70, 70);
+  --color-font-light: rgb(32, 32, 32);
+  --color-font-inverted: white;
+  --color-primary-light: rgb(140, 0, 255);
+  --color-primary: rgb(86, 0, 147);
+  --color-primary-dark: #2e0052;
+  --theme-invert: 0%;
 }
 
 :root:has(#blue:checked) {
