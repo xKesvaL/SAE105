@@ -1,7 +1,6 @@
 const themes = document.querySelectorAll(`[name="theme"]`);
 const scrollTopButton = document.querySelector(".back-to-top");
-
-scrollTopButton.addEventListener("click", scrollToTop);
+const seeMore = document.querySelector(".projects.home .project.see-more");
 
 window.addEventListener("scroll", () => {
   if (
@@ -21,17 +20,34 @@ window.addEventListener("load", () => {
     });
   });
 
+  if (seeMore) {
+    seeMoreEvents();
+  }
+
   applyTheme();
   createBurgerMenu();
   listenToBurger();
+  scrollTopButton.addEventListener("click", scrollToTop);
 
   // Always last : activates all transitions.
   document.querySelector("body").classList.remove("preload");
 });
 
-function scrollToTop() {
+const seeMoreEvents = () => {
+  seeMore.addEventListener("click", () => {
+    window.location.assign("/projects");
+  });
+};
+
+const showSAE = (containerName) => {
+  if (!SAE) {
+    console.error("No SAE data file found.");
+  }
+};
+
+const scrollToTop = () => {
   window.scroll(0, 0);
-}
+};
 
 const storeTheme = (theme) => {
   localStorage.setItem("theme", theme);

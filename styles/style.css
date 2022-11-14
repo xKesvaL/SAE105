@@ -538,6 +538,7 @@ main .projects.home .project {
 
 main .projects.home .project.see-more {
   position: relative;
+  pointer-events: none;
 }
 
 main .projects.home .project.see-more .text,
@@ -563,6 +564,7 @@ main .projects.home .project.see-more::before {
   z-index: 99;
   transition: 0.5s linear;
   color: var(--st-color-font-inverted);
+  pointer-events: all;
 }
 
 main .projects.home .project.see-more:hover::before {
@@ -584,7 +586,7 @@ main .projects.home .project .text {
 main .projects.home .project .text .type {
   font-weight: 700;
   font-size: 0.9rem;
-  margin-bottom: 4vh;
+  margin-bottom: 2vw;
 }
 
 main .projects.home .project:first-child .text .type {
@@ -603,7 +605,7 @@ main .projects.home .project:nth-child(3) .text .type {
 main .projects.home .project .text .title {
   font-weight: 300;
   font-size: 1.4rem;
-  margin-bottom: 2vh;
+  margin-bottom: 1vw;
 }
 
 main .projects.home .project .text .desc {
