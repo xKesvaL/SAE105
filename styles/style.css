@@ -709,6 +709,12 @@ footer .links svg {
     margin-right: 2.5vw;
   }
 
+  main .projects.home .project.see-more::before {
+    font-size: 1rem;
+    padding: 1.5vw 1.5vw;
+    white-space: nowrap;
+  }
+
   main .projects.home .project .text .type {
     font-size: 0.9rem;
   }
@@ -879,6 +885,11 @@ footer .links svg {
     height: 4vw;
   }
 
+  main .projects.home .project.see-more::before {
+    font-size: 1.25rem;
+    padding: 2.5vw 2.5vw;
+  }
+
   .theme-switcher fieldset {
     gap: 1vw;
     width: 13vw;
@@ -1011,6 +1022,11 @@ footer .links svg {
   main .projects.home .project .text .logo {
     height: 7.5vw;
     max-height: 40px;
+  }
+
+  main .projects.home .project.see-more::before {
+    font-size: 5vw;
+    padding: 4vw 4vw;
   }
 
   .theme-switcher fieldset {
