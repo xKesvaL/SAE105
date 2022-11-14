@@ -1,5 +1,4 @@
 /* # Defaults */
-
 :root {
   /* Theme-Dependant */
   --color-background-light: #181a1b;
@@ -217,7 +216,26 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   --radio-color: var(--color-theme-blue);
 }
 
-.light,
+/* 
+All comments below are related to :has coverage, see https://caniuse.com/?search=%3Ahas 
+This is in case I ever want to cover browsers that don't allow :has. (no)
+*/
+
+/* .dark, */
+/* :root:has(#dark:checked) {
+  --color-background-light: #181a1b;
+  --color-background: #202325;
+  --color-font: white;
+  --color-font-ultralight: rgb(170, 170, 170);
+  --color-font-light: rgb(240, 240, 240);
+  --color-font-inverted: black;
+  --color-primary-light: #c371ff;
+  --color-primary: #971aff;
+  --color-primary-dark: rgb(46, 0, 81);
+  --theme-invert: 100%;
+} */
+
+/* .light, */
 :root:has(#light:checked) {
   --color-background-light: white;
   --color-background: rgb(240, 240, 240);
@@ -231,7 +249,7 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   --theme-invert: 0%;
 }
 
-.blue,
+/* .blue, */
 :root:has(#blue:checked) {
   --color-background-light: #18183e;
   --color-background: #20233e;

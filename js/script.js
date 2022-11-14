@@ -53,12 +53,6 @@ const storeTheme = (theme) => {
   localStorage.setItem("theme", theme);
 };
 
-const setTheme = (theme) => {
-  // This is for browsers that don't support the :has pseudo-class
-  // See https://caniuse.com/?search=%3Ahas
-  document.documentElement.className = theme;
-};
-
 const applyTheme = () => {
   const activeTheme = localStorage.getItem("theme");
   themes.forEach((theme) => {
@@ -66,7 +60,12 @@ const applyTheme = () => {
       theme.checked = true;
     }
   });
-  setTheme(activeTheme);
+  /* 
+  :has has a main coverage of 82.92%
+  I actually consider that to be enough that we don't care about the rest.
+  Rest : Firefox (will have it soon), other not really known browsers
+  document.documentElement.className = theme;
+  */
 };
 
 const createBurgerMenu = () => {
