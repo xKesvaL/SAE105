@@ -418,7 +418,7 @@ main {
 
 main > div {
   /* outline: solid 1px black; */
-  min-height: 75vh;
+  min-height: 60vh;
   margin: 7.5vh 5vw;
   display: flex;
   justify-content: space-between;
@@ -537,6 +537,7 @@ main .projects.home a {
   font-size: 3rem;
   font-weight: 700;
   color: var(--color-font);
+  margin-bottom: 10vh;
 }
 
 main .projects.home .list {
@@ -602,7 +603,7 @@ main .projects.home .project .text {
 
 main .projects.home .project .text .type {
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin-bottom: 2vw;
 }
 
@@ -621,13 +622,14 @@ main .projects.home .project:nth-child(3) .text .type {
 
 main .projects.home .project .text .title {
   font-weight: 300;
-  font-size: 1.4rem;
+  font-size: 1.75rem;
   margin-bottom: 1vw;
 }
 
 main .projects.home .project .text .desc {
   color: var(--color-font-ultralight);
   font-weight: 500;
+  font-size: 1.25rem;
 }
 
 main .projects.home .project .text .logo {
@@ -707,6 +709,19 @@ footer .links svg {
     margin-right: 2.5vw;
   }
 
+  main .projects.home .project .text .type {
+    font-size: 0.9rem;
+  }
+
+  main .projects.home .project .text .title {
+    font-size: 1.4rem;
+    margin-bottom: 1vw;
+  }
+
+  main .projects.home .project .text .desc {
+    font-size: 1rem;
+  }
+
   .theme-switcher fieldset {
     gap: 1vw;
     width: 13vw;
@@ -775,6 +790,18 @@ footer .links svg {
     display: none;
   }
 
+  main .projects.home .project {
+    width: 23vw;
+    height: 20vw;
+    padding: 2vw 2vw;
+    border-radius: 25px;
+    background-color: var(--color-background-light);
+  }
+
+  main .projects.home .project .text .logo {
+    height: 3vw;
+  }
+
   .theme-switcher fieldset {
     gap: 1vw;
     width: 13vw;
@@ -822,6 +849,34 @@ footer .links svg {
   header .burger {
     margin: 0 5vw;
     gap: 3vw;
+  }
+
+  main .projects.home .list {
+    flex-direction: column;
+    gap: 5vw;
+  }
+
+  main .projects.home .project {
+    width: 50vw;
+    height: 30vw;
+    padding: 3vw 3vw;
+  }
+
+  main .projects.home .project .text .type {
+    font-size: 1.1rem;
+  }
+
+  main .projects.home .project .text .title {
+    font-size: 1.75rem;
+    margin-bottom: 1vw;
+  }
+
+  main .projects.home .project .text .desc {
+    font-size: 1.25rem;
+  }
+
+  main .projects.home .project .text .logo {
+    height: 4vw;
   }
 
   .theme-switcher fieldset {
@@ -928,6 +983,34 @@ footer .links svg {
 
   main .about .myself-icons .img-me div p {
     font-size: 4vw;
+  }
+
+  main .projects.home .project {
+    width: 80vw;
+    height: 50vw;
+    padding: 5vw 5vw;
+  }
+
+  main .projects.home a {
+    font-size: 10vw;
+  }
+
+  main .projects.home .project .text .type {
+    font-size: 4vw;
+  }
+
+  main .projects.home .project .text .title {
+    font-size: 8vw;
+    margin-bottom: 1vw;
+  }
+
+  main .projects.home .project .text .desc {
+    font-size: 6vw;
+  }
+
+  main .projects.home .project .text .logo {
+    height: 7.5vw;
+    max-height: 40px;
   }
 
   .theme-switcher fieldset {
