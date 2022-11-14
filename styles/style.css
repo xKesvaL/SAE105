@@ -61,10 +61,6 @@ body {
   transition: color 0.5s, background-color 0.5s, stroke 0.5s;
 }
 
-body:has(.header-placeholder.active) {
-  overflow: hidden;
-}
-
 /* # Utilities */
 
 .preload * {
@@ -115,7 +111,7 @@ It is still in the HTML and a screen reader will read it, while display: none; b
 .header-placeholder.active {
   display: block;
   height: 15vh;
-  width: 100vw;
+  width: 99vw;
 }
 
 /* --- # Back to top button --- */
@@ -221,6 +217,7 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   --radio-color: var(--color-theme-blue);
 }
 
+.light,
 :root:has(#light:checked) {
   --color-background-light: white;
   --color-background: rgb(240, 240, 240);
@@ -234,6 +231,7 @@ It is still in the HTML and a screen reader will read it, while display: none; b
   --theme-invert: 0%;
 }
 
+.blue,
 :root:has(#blue:checked) {
   --color-background-light: #18183e;
   --color-background: #20233e;
@@ -372,7 +370,7 @@ header .burger svg {
   z-index: 999;
 }
 
-body:has(.burger-menu.burger-shown) header {
+header.fixed {
   position: fixed;
   top: 0;
   left: 0;

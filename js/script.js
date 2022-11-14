@@ -53,13 +53,20 @@ const storeTheme = (theme) => {
   localStorage.setItem("theme", theme);
 };
 
-const applyTheme = (theme) => {
+const setTheme = (theme) => {
+  // This is for browsers that don't support the :has pseudo-class
+  // See https://caniuse.com/?search=%3Ahas
+  document.documentElement.className = theme;
+};
+
+const applyTheme = () => {
   const activeTheme = localStorage.getItem("theme");
   themes.forEach((theme) => {
     if (theme.id == activeTheme) {
       theme.checked = true;
     }
   });
+  setTheme(activeTheme);
 };
 
 const createBurgerMenu = () => {
@@ -70,6 +77,7 @@ const createBurgerMenu = () => {
 };
 
 const listenToBurger = () => {
+  let header = document.querySelector("header");
   let burger = document.querySelector("header .burger");
   let burgerMenu = document.querySelector(".burger-menu");
   let burgerSvg = document.querySelector("header .burger svg");
@@ -85,6 +93,7 @@ const listenToBurger = () => {
   burger.addEventListener("click", () => {
     placeHolder.classList.toggle("active");
     burgerMenu.classList.toggle("burger-shown");
+    header.classList.toggle("fixed");
     burgerSvg.classList.toggle("white-svg");
     logo.classList.toggle("burger-header");
   });
