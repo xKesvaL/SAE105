@@ -994,6 +994,11 @@ footer .links svg {
     margin-top: 10vw;
   }
 
+  main .about .myself-icons {
+    position: relative;
+    top: -5vh;
+  }
+
   main .about .myself-text h2 {
     font-size: 7.5vw;
     margin-top: 1vh;
@@ -1104,6 +1109,10 @@ footer .links svg {
   main .about .myself-icons .discover-me {
     font-size: 1.25rem;
   }
+
+  main .about .myself-icons {
+    top: -7.5vh;
+  }
 }
 
 /* XS-Size 300px Breakpoint */
@@ -1147,6 +1156,10 @@ footer .links svg {
   .theme-switcher fieldset input[type="radio"] {
     width: 4.5vw;
     height: 4.5vw;
+  }
+
+  main .about .myself-icons {
+    top: -5vh;
   }
 }
 
