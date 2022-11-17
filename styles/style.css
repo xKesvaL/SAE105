@@ -1029,30 +1029,30 @@ footer .links svg {
   }
 
   main .projects.home .project {
-    width: 80vw;
+    width: 67.5vw;
     height: 50vw;
     padding: 5vw 5vw;
   }
 
   main .projects.home a {
-    font-size: 10vw;
+    font-size: 8vw;
   }
 
   main .projects.home .project .text .type {
-    font-size: 4vw;
+    font-size: 3vw;
   }
 
   main .projects.home .project .text .title {
-    font-size: 8vw;
+    font-size: 7vw;
     margin-bottom: 1vw;
   }
 
   main .projects.home .project .text .desc {
-    font-size: 6vw;
+    font-size: 5vw;
   }
 
   main .projects.home .project .text .logo {
-    height: 7.5vw;
+    height: 6vw;
     max-height: 40px;
   }
 
@@ -1124,6 +1124,29 @@ footer .links svg {
     right: 5%;
     width: 35px;
     height: 35px;
+  }
+
+  .theme-switcher fieldset {
+    gap: 0.5vw;
+    padding: 1.5vh 2vw;
+    width: 13vw;
+    top: 12.5%;
+    left: 89%;
+  }
+
+  .theme-switcher fieldset:hover,
+  .theme-switcher fieldset:focus {
+    left: 64.5%;
+  }
+
+  .theme-switcher fieldset svg {
+    width: 7.5vw;
+    height: 7.5vw;
+  }
+
+  .theme-switcher fieldset input[type="radio"] {
+    width: 4.5vw;
+    height: 4.5vw;
   }
 }
 
