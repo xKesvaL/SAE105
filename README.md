@@ -30,7 +30,6 @@ The icons you see on the website are from :
 
 Credits to the people for some of the code :
 
-- Jouan Marcel (Futuristic Hover Projects)
 - Kevin Powell (Theme Switcher)
 
 ---
