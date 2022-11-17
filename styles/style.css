@@ -473,6 +473,7 @@ main .about .myself-icons .img-me {
 
 main .about .myself-icons .img-me > img {
   width: 4vw;
+  height: 4vw;
   aspect-ratio: 1;
   z-index: 99;
   position: absolute;
@@ -897,6 +898,7 @@ footer .links svg {
 
   main .about .myself-icons .img-me > img {
     width: 5vw;
+    height: 5vw;
   }
 
   main .projects.home .list {
@@ -1002,6 +1004,10 @@ footer .links svg {
 
   main .about .myself-text p {
     font-size: 1.25rem;
+  }
+
+  main .about .myself-icons {
+    top: -5vh;
   }
 
   main .about .myself-icons .discover-me {
