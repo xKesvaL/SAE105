@@ -1,6 +1,35 @@
 const themes = document.querySelectorAll(`[name="theme"]`);
 const scrollTopButton = document.querySelector(".back-to-top");
-const seeMore = document.querySelector(".projects.home .project.see-more");
+
+let SAEs;
+let seeMore;
+let projectSAE;
+
+try {
+  SAEs = Object.keys(SAE);
+  projectSAE = document.querySelector(".projects.folder .saes");
+} catch (e) {}
+
+try {
+  seeMore = document.querySelector(".projects.home .project.see-more");
+} catch (e) {}
+
+if (projectSAE) {
+  SAEs.forEach((sitae) => {
+    let comps = Object.values(SAE[sitae]["compétences"]);
+    projectSAE.innerHTML += `
+    <div class="sae">
+      <div class="name enhance">${sitae}</div>
+      <div class="title">${SAE[sitae].titre}</div>
+      <div class="acs">
+        <div class="ac">
+          ${comps.join('</div><div class="ac">')}
+        </div>
+      </div>
+    <div>
+    `;
+  });
+}
 
 window.addEventListener("scroll", () => {
   if (
