@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Portfolio de Jordan 'KesvaL' Abeddou, développeur fullstack."
+      content="SAÉ spécifiée | Jordan 'KesvaL' Abeddou, développeur fullstack."
     />
     <meta name="theme" content="#202020" />
-    <title>KesvaL | Portfolio</title>
+    <title>SAÉ | Portfolio</title>
 
     <!-- Links -->
     <link
@@ -33,23 +33,11 @@
     /></noscript>
   </head>
   <body class="preload">
-    <!-- A simple back to top button -->
-    <div class="back-to-top">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M12 19V6M5 12l7-7 7 7" />
-      </svg>
-    </div>
     <!-- 
       This is the theme switcher accessible in the sidebar.
       It stores the wanted theme and uses CSS variables to change colors.
      -->
-    <form action="" class="theme-switcher">
+    <form class="theme-switcher" aria-label="Changeur de thème">
       <fieldset>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -57,6 +45,7 @@
           fill="none"
           stroke-linecap="round"
           stroke-linejoin="round"
+          aria-label="Logo thème"
         >
           <rect x="3" y="3" width="18" height="18" rx="2" />
           <path d="M3 9h18M9 21V9" />
@@ -77,29 +66,30 @@
       So that the page doesn't flick up because of the space loss.
       -->
     </div>
-    <header id="about">
+    <header id="about" aria-label="tête de page">
       <div class="trademark">
         <a href="/" class="logo"
           ><img
             src="/img/logo/kesval-logo-round-128x.webp"
-            alt="KesvaL's logo"
+            alt="Logo de KesvaL"
             width="40px"
             height="40px"
         /></a>
         <a href="/">KesvaL</a>
       </div>
-      <div class="pages">
+      <div class="pages" aria-label="Pages principales">
         <a href="/#about" class="page">À propos</a>
         <a href="/projects" class="page">Projets</a>
         <a href="/contact" class="page">Contact</a>
       </div>
-      <div class="burger">
+      <div class="burger" tabindex="0" aria-label="Menu">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="none"
           stroke-linecap="round"
           stroke-linejoin="round"
+          aria-label="Logo menu"
         >
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -107,15 +97,18 @@
         </svg>
       </div>
     </header>
-    <main>
+    <main aria-label="Contenu principal">
       <!-- LAYOUT TOP - Not in relation to the page -->
       <div class="projects folder"></div>
       <!-- LAYOUT BELOW - Not in relation to the page -->
     </main>
-    <footer>
+    <footer aria-label="Pied de page">
       <div class="author">Jordan Abeddou<br />Fullstack Developer</div>
       <div class="links">
-        <a href="mailto:jabeddou@gmail.com" aria-label="Send KesvaL an e-mail">
+        <a
+          href="mailto:jabeddou@gmail.com"
+          aria-label="Envoyer un mail à KesvaL"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -132,16 +125,29 @@
         <a
           href="https://github.com/xKesvaL"
           target="_blank"
-          aria-label="See KesvaL's github"
+          aria-label="Voir le Github de KesvaL"
           ><img
             src="/img/logo/github-logo.webp"
             alt="Github's logo"
-            `
             width="40px"
             height="40px"
         /></a>
       </div>
     </footer>
+    <!-- A simple back to top button -->
+    <div class="back-to-top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-label="Bouton revenir en haut"
+        tabindex="0"
+      >
+        <path d="M12 19V6M5 12l7-7 7 7" />
+      </svg>
+    </div>
     <script src="/js/script.js"></script>
   </body>
 </html>
