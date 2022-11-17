@@ -999,6 +999,10 @@ footer .links svg {
     top: -5vh;
   }
 
+  main .about .myself-icons .img-me > img {
+    width: 7vw;
+  }
+
   main .about .myself-text h2 {
     font-size: 7.5vw;
     margin-top: 1vh;
@@ -1111,7 +1115,7 @@ footer .links svg {
   }
 
   main .about .myself-icons {
-    top: -7.5vh;
+    top: -5vh;
   }
 }
 
@@ -1159,7 +1163,7 @@ footer .links svg {
   }
 
   main .about .myself-icons {
-    top: -5vh;
+    top: -2.5vh;
   }
 }
 
