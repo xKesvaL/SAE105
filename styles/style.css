@@ -4,7 +4,7 @@
   --color-background-light: #181a1b;
   --color-background: #202325;
   --color-font: white;
-  --color-font-ultralight: rgb(170, 170, 170);
+  --color-font-ultralight: rgb(185, 185, 185);
   --color-font-light: rgb(240, 240, 240);
   --color-font-inverted: black;
   --color-primary-light: #c371ff;
@@ -674,8 +674,8 @@ main .projects.home .project .text {
 }
 
 main .projects.home .project .text .type {
-  font-weight: 700;
-  font-size: 1rem;
+  font-weight: 900;
+  font-size: 1.2rem;
   margin-bottom: 2vw;
 }
 
@@ -788,7 +788,7 @@ footer .links svg {
   }
 
   main .projects.home .project .text .type {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
 
   main .projects.home .project .text .title {
