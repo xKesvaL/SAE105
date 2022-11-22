@@ -10,8 +10,8 @@
   --color-primary-light: #c371ff;
   --color-primary: #971aff;
   --color-primary-dark: rgb(46, 0, 81);
-  --theme-invert: 100%;
   /* Non-Theme-Dependant */
+  --theme-invert: 100%;
   --color-theme-light: grey;
   --color-theme-dark: rgb(32, 32, 32);
   --color-theme-blue: rgb(25, 0, 160);
@@ -20,15 +20,15 @@
   --color-others-royalblue: #4169e1;
   /* Static Variables
   Basically a copy of the first variables but these don't ever change. */
-  --st-color-background-light: white;
-  --st-color-background: rgb(240, 240, 240);
-  --st-color-font: black;
-  --st-color-font-ultralight: rgb(70, 70, 70);
-  --st-color-font-light: rgb(32, 32, 32);
-  --st-color-font-inverted: white;
-  --st-color-primary-light: rgb(140, 0, 255);
-  --st-color-primary: indigo;
-  --st-color-primary-dark: #46007b;
+  --st-color-background-light: #181a1b;
+  --st-color-background: #202325;
+  --st-color-font: white;
+  --st-color-font-ultralight: rgb(185, 185, 185);
+  --st-color-font-light: rgb(240, 240, 240);
+  --st-color-font-inverted: black;
+  --st-color-primary-light: #c371ff;
+  --st-color-primary: #971aff;
+  --st-color-primary-dark: rgb(46, 0, 81);
 }
 
 html {
@@ -135,7 +135,7 @@ It is still in the HTML and a screen reader will read it, while display: none; b
 }
 
 .back-to-top svg {
-  stroke: var(--st-color-font-inverted);
+  stroke: var(--st-color-font);
   stroke-width: 1;
   width: 100%;
   height: 100%;
@@ -195,7 +195,9 @@ It is still in the HTML and a screen reader will read it, while display: none; b
 }
 
 .theme-switcher fieldset:hover,
-.theme-switcher fieldset:focus {
+.theme-switcher fieldset:focus,
+.theme-switcher fieldset:has(input:hover),
+.theme-switcher fieldset:has(input:focus) {
   left: 84%;
 }
 
@@ -397,7 +399,7 @@ header.fixed {
 }
 
 .burger-menu a {
-  color: var(--st-color-font-inverted);
+  color: var(--st-color-font);
   text-decoration: none;
   font-size: 2.5rem;
 }
@@ -407,7 +409,7 @@ header.fixed {
 }
 
 .burger-header {
-  color: var(--st-color-font-inverted) !important;
+  color: var(--st-color-font) !important;
 }
 
 /* --- # Main --- */
@@ -522,7 +524,7 @@ main .about .myself-icons .img-me .me div {
   background-color: var(--color-primary-dark);
   box-shadow: 0 80px 100px -80px var(--color-primary-light) inset;
   transition: 0.2s, background-color 0.5s linear, color 0.5s linear;
-  color: var(--color-font-inverted);
+  color: var(--color-font);
   font-weight: 700;
   font-size: 1.5rem;
   padding: 1vh 1vw;
@@ -537,7 +539,7 @@ main .about .myself-icons .img-me .me div p {
   text-align: center;
   white-space: nowrap;
   letter-spacing: 0.1rem;
-  color: var(--st-color-font-inverted);
+  color: var(--st-color-font);
 }
 
 main .about .myself-icons .img-me .me img {
@@ -581,20 +583,173 @@ main .projects.folder .saes .sae {
   background: var(--color-background-light);
   padding: 2vw;
   border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
-main .projects.folder .saes .sae .name {
-  font-size: 1.5rem;
+main .projects.folder .saes .sae > .name {
+  font-size: 2rem;
   font-weight: 700;
   width: fit-content;
 }
 
 main .projects.folder .saes .sae .title {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--color-font-ultralight);
 }
 
-main .projects.folder .saes .sae .acs {
+main .projects.folder .saes .sae hr {
+  width: 99.5%;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+}
+
+main .projects.folder .saes .sae .cps {
+  position: absolute;
+  clip-path: circle(11% at 10% 87%);
+  background-color: var(--color-primary);
+  transition: 0.25s linear;
+  left: 0%;
+  top: 10%;
+  width: 90%;
+  height: 90%;
+  border-radius: 25px;
+}
+
+main .projects.folder .saes .sae .cps .cp.icon {
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+main .projects.folder .saes .sae .cps .cp.names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+}
+
+main .projects.folder .saes .sae .cps .cp.name {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+main .projects.folder .saes .sae .see-more {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 90%;
+  height: 90%;
+  border-radius: 25px;
+  background-color: var(--color-primary);
+  clip-path: circle(11% at 90% 87%);
+  color: var(--color-font);
+  transition: 0.25s linear;
+}
+
+main .projects.folder .saes .sae .see-more:hover {
+  background-color: var(--color-primary-dark);
+}
+
+main .projects.folder .saes .sae .see-more span {
+  position: absolute;
+  font-size: 2.75rem;
+  font-weight: 500;
+  top: 73%;
+  left: 85%;
+}
+
+main .projects.folder .saes .sae .cps:hover {
+  clip-path: circle(100%);
+  background-color: var(--color-primary-dark);
+}
+
+/* --- ### SAE Page --- */
+
+main > .sae {
+  border-radius: 35px;
+  display: flex;
+  position: relative;
+  padding: 2vw;
+  background: var(--color-background-light);
+  overflow: hidden;
+  height: 100vh !important;
+}
+
+main .sae .sae-next,
+main .sae .sae-previous {
+  position: absolute;
+  top: 0;
+  background: var(--color-primary-dark);
+  font-size: 2.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.5s all;
+  text-decoration: none;
+  color: var(--st-color-font);
+  top: 93.5%;
+  width: 8%;
+  height: 9%;
+}
+
+main .sae .sae-next.disabled,
+main .sae .sae-previous.disabled {
+  cursor: default;
+  pointer-events: none;
+  filter: brightness(60%) grayscale(70%);
+  opacity: 0.6;
+}
+
+main .sae .sae-previous {
+  left: -1.2%;
+  border-radius: 0 50% 0 50%;
+  transform: translate(15%, -25%);
+}
+
+main .sae .sae-previous::before,
+main .sae .sae-next::before {
+  transition: 0.2s ease-in-out;
+  z-index: -9;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  transform: translate(0%, -20%);
+  background: var(--color-primary);
+}
+
+main .sae .sae-previous:hover:before,
+main .sae .sae-next:hover::before {
+  transform: translate(0%, 0%);
+}
+
+main .sae .sae-previous::before {
+  content: "<";
+  border-radius: 0 50% 0 50%;
+}
+
+main .sae .sae-next {
+  left: 93.5%;
+  border-radius: 50% 0 50% 0;
+  transform: translate(-15%, -25%);
+}
+
+main .sae .sae-next::before {
+  content: ">";
+  border-radius: 50% 0 50% 0;
+}
+
+main .sae .full-acs,
+main .sae .full-resources {
+  display: none;
 }
 
 /* --- ### Home Projects --- */
@@ -653,7 +808,7 @@ main .projects.home .project.see-more::before {
   cursor: pointer;
   z-index: 99;
   transition: 0.5s linear;
-  color: var(--st-color-font-inverted);
+  color: var(--st-color-font);
   pointer-events: all;
 }
 
@@ -808,7 +963,9 @@ footer .links svg {
   }
 
   .theme-switcher fieldset:hover,
-  .theme-switcher fieldset:focus {
+  .theme-switcher fieldset:focus,
+  .theme-switcher fieldset:has(input:hover),
+  .theme-switcher fieldset:has(input:focus) {
     left: 83%;
   }
 
@@ -888,7 +1045,9 @@ footer .links svg {
   }
 
   .theme-switcher fieldset:hover,
-  .theme-switcher fieldset:focus {
+  .theme-switcher fieldset:focus,
+  .theme-switcher fieldset:has(input:hover),
+  .theme-switcher fieldset:has(input:focus) {
     left: 80%;
   }
 
@@ -975,7 +1134,9 @@ footer .links svg {
   }
 
   .theme-switcher fieldset:hover,
-  .theme-switcher fieldset:focus {
+  .theme-switcher fieldset:focus,
+  .theme-switcher fieldset:has(input:hover),
+  .theme-switcher fieldset:has(input:focus) {
     left: 77%;
   }
 
@@ -1119,7 +1280,9 @@ footer .links svg {
   }
 
   .theme-switcher fieldset:hover,
-  .theme-switcher fieldset:focus {
+  .theme-switcher fieldset:focus,
+  .theme-switcher fieldset:has(input:hover),
+  .theme-switcher fieldset:has(input:focus) {
     left: 66%;
   }
 
@@ -1188,7 +1351,9 @@ footer .links svg {
   }
 
   .theme-switcher fieldset:hover,
-  .theme-switcher fieldset:focus {
+  .theme-switcher fieldset:focus,
+  .theme-switcher fieldset:has(input:hover),
+  .theme-switcher fieldset:has(input:focus) {
     left: 64.5%;
   }
 

@@ -38,7 +38,7 @@
       It stores the wanted theme and uses CSS variables to change colors.
      -->
     <form class="theme-switcher" aria-label="Changeur de thème">
-      <fieldset>
+      <fieldset tabindex="0">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -52,11 +52,11 @@
         </svg>
         <legend class="visually-hidden">Choisissez un thème</legend>
         <label for="light" class="visually-hidden">Clair</label>
-        <input type="radio" name="theme" id="light" />
+        <input type="radio" name="theme" id="light" tabindex="0" />
         <label for="dark" class="visually-hidden">Foncé</label>
-        <input type="radio" name="theme" id="dark" checked />
+        <input type="radio" name="theme" id="dark" checked tabindex="0" />
         <label for="blue" class="visually-hidden">Bleuté</label>
-        <input type="radio" name="theme" id="blue" />
+        <input type="radio" name="theme" id="blue" tabindex="0" />
       </fieldset>
     </form>
     <div class="header-placeholder">
@@ -82,7 +82,7 @@
         <a href="/projects" class="page">Projets</a>
         <a href="/contact" class="page">Contact</a>
       </div>
-      <div class="burger" tabindex="0" aria-label="Menu">
+      <div class="burger" aria-label="Menu">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -90,6 +90,7 @@
           stroke-linecap="round"
           stroke-linejoin="round"
           aria-label="Logo menu"
+          tabindex="-1"
         >
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>

@@ -1,4 +1,14 @@
 const SAE = {
+  infos: {
+    1: {
+      minSAE: 1,
+      maxSAE: 6,
+    },
+    2: {
+      minSAE: 1,
+      maxSAE: 4,
+    },
+  },
   "SAE1.01": {
     titre: "Auditer une communication numérique",
     compétences: ["Comprendre"],
@@ -30,7 +40,7 @@ const SAE = {
     titre: "Concevoir une recommandation de communication numérique",
     compétences: ["Concevoir"],
     description:
-      "En se basant sur un audit (issu de la SAE1.01 ou fourni par les enseignants), les étudiants doivent proposer une recommandation marketing et un plan de communication pour accompagner la sortie ou le repositionnement d’un produit, d’un service ou d’une marque dans un contexte international.",
+      "En tant que chargés de communication juniors, les étudiants conçoivent une recommandation de communication pour la sortie ou le repositionnement d’un produit ou d’un service dans un contexte international.",
     AC: {
       "AC12.03":
         "Proposer une recommandation marketing (cibles, objectifs, points de contact)",
@@ -49,7 +59,7 @@ const SAE = {
     titre: "Produire les éléments d’une communication visuelle",
     compétences: ["Exprimer"],
     description:
-      "Les étudiants doivent :<br>– Analyser et comprendre la demande du commanditaire, puis sélectionner différents angles de réponse ;<br>– Mener un travail de réflexion créative en réalisant des croquis ou des planches d’inspiration ;<br>– Créer et réaliser un ensemble cohérent de productions graphiques comme des affiches, des plaquettes ou des visuels à destination des réseaux sociaux ;<br>– Présenter les éléments produits en comparant les pistes explorées et en justifiant les choix esthétiques.",
+      "En tant qu’infographistes juniors, les étudiants doivent mener un travail de conception, de création et de production d’éléments visuels pour une campagne de communication telle que la couverture d’un événement, la sortie d’un produit ou un travail de positionnement d’une nouvelle marque.",
     AC: {
       "AC13.02": "Produire des pistes graphiques et des planches d’inspiration",
       "AC13.03": "Créer, composer et retoucher des visuels",
@@ -68,7 +78,7 @@ const SAE = {
     titre: "Produire un contenu audio et vidéo",
     compétences: ["Exprimer"],
     description:
-      "Cette SAE permet aux étudiants d’explorer les bases de la production audiovisuelle pour répondre à un objectif de communication simple, dans un contexte international.<br>Elle permet de découvrir les outils et méthodes de conception de scénario multimédia.<br>Une partie significative des voix-off, des sous-titres ou incrustations doit être en anglais ou dans une autre langue étrangère.",
+      "Cette SAE permet aux étudiants d’explorer les bases de la production audiovisuelle pour répondre à un objectif de communication simple, dans un contexte international.<br>Elle permet de découvrir les outils et méthodes de conception de scénario multimédia.<br>Une partie significative des voix-off, des sous-titres ou incrustations doit être en <b>anglais</b> ou dans une autre langue étrangère.",
     AC: {
       "AC13.01": "Ecrire pour les médias numériques",
       "AC13.04":
@@ -89,7 +99,7 @@ const SAE = {
     titre: "Produire un site Web",
     compétences: ["Développer"],
     description:
-      "Les étudiants peuvent suivre la démarche suivante :<br>– Installer et paramétrer son environnement de développement ;<br>– Comprendre la nature des contenus à intégrer et des jeux de données fournis ;<br>– Identifier les éléments présents sur toutes les pages et les éléments produits à partir des données ;<br>– Intégrer une version statique du site Web se limitant à quelques pages types, puis développer les algorithmes exploitant les données pour générer les vues ;<br>– ou Définir les différents modèles de pages et les intégrer en utilisant un moteur de template ;<br>– Mettre en place des feuilles de style CSS;<br>– Vérifier la conformité aux normes du W3C et aux recommandations du WCAG;<br>– Générer l’ensemble des pages à partir des jeux de données fournis ;<br>– Mettre le site Web en ligne.",
+      "En tant qu’intégrateurs ou développeurs juniors dans une agence Web, les étudiants doivent mener un travail de conception, d’intégration et de développement des vues d’un site Web. Le cahier des charges comprend la description des éléments statiques de l’application et un jeu de données structurées représentant un échantillon des contenus à mettre en ligne.",
     AC: {
       "AC14.01":
         "Exploiter de manière autonome un environnement de développement efficace et productif",
@@ -111,15 +121,22 @@ const SAE = {
     titre: "Gérer un projet de communication numérique",
     compétences: ["Entreprendre"],
     description:
-      "En se basant sur un objectif de communication (issu de la SAE1.02 ou fourni par les enseignants), les étudiants doivent mener un travail de gestion de projet pour le déploiement de cette campagne de communication numérique, dans un contexte international.",
-    AC: {},
-    ressources: {
+      "En se basant sur un objectif de communication, les étudiants doivent mener un travail de gestion de projet pour le déploiement de cette campagne de communication numérique, dans un contexte international.<br>Le contexte international doit conduire les étudiants à s’exprimer, à l’écrit ou à l’oral, en langue étrangère.",
+    AC: {
       "AC15.01": "Gérer un projet avec une méthode classique",
       "AC15.02": "Budgéter un projet et suivre sa rentabilité",
       "AC15.03":
-        "Découvrir les écosystèmes d’innovation numérique (fab labs, living labs, tiers-lieux, incubateurs. . . )",
+        "Découvrir les écosystèmes d’innovation numérique (fab labs, living labs, tiers-lieux, incubateurs...)",
       "AC15.06": "Interagir au sein des organisations",
       "AC15.07": "Produire un message écrit ou oral professionnel",
+    },
+    ressources: {
+      "R1.01": "Anglais",
+      "R1.02": "Anglais Renforcé ou LV2",
+      "R1.06": "Expression, communication et rhétorique",
+      "R1.15": "Gestion de projet",
+      "R1.16": "Économie, gestion et droit du numérique",
+      "R1.17": "Projet Personnel et Professionnel",
     },
     semestre: 1,
   },
@@ -149,7 +166,7 @@ const SAE = {
     titre: "Concevoir un produit ou un service et sa communication",
     compétences: ["Concevoir", "Exprimer", "Développer", "Entreprendre"],
     description:
-      "Les étudiants peuvent être amenés à :<br>– Concevoir un produit ou un service innovant (dossier de conception, proposition de valeur, ciblage marketing) ;<br>– Concevoir une campagne de communication (stratégie, plan de communication, présence sur les réseaux sociaux) ;<br>– Mettre en place un site vitrine en utilisant un CMS ;<br>– Veiller à la bonne application du droit dans ce projet (CGU, droit d’auteur, droit à l’image) ;<br>– Rédiger un dossier de production : scénario, note d’intention, plan de travail, autorisation de tournage ;<br>– Créer les supports de communication adaptés à une cible francophone et internationale : textes, affiches, éléments graphiques ou audiovisuel ;<br>– Assurer la gestion et le suivi du projet : appel d’offre, budget, document et outils de suivi et de planification ;<br>– Présenter le projet et/ou ses avancées aux commanditaires (suivi ou recettage du projet) sous forme de présentation ou de comptes rendus.",
+      "Cette SAE place les étudiants dans une situation rencontrée dans des petites structures, comme des agences de communication ou des PME, qui ont des clients internationaux, par exemple dans le domaine du tourisme.<br>Une <b>partie significative</b> des contenus sera réalisée en langue étrangère. La SAE doit prévoir des situations permettant d’évaluer la capacité des étudiants à <b>communiquer au sein d’organisations</b>.<br>En tant que chargés de communication ou de produit juniors, les étudiants doivent imaginer un produit ou un service, concevoir une campagne de communication pour son lancement et réaliser les supports de communication.",
     AC: {
       "AC12.01":
         "Concevoir un produit ou un service en terme d’usage et de fonctionnalité",
@@ -171,7 +188,7 @@ const SAE = {
       "AC15.01": "Gérer un projet avec une méthode classique",
       "AC15.02": "Budgéter un projet et suivre sa rentabilité",
       "AC15.03":
-        "Découvrir les écosystèmes d’innovation numérique (fab labs, living labs, tiers-lieux, incubateurs. . . )",
+        "Découvrir les écosystèmes d’innovation numérique (fab labs, living labs, tiers-lieux, incubateurs...)",
       "AC15.04":
         "Analyser un produit ou un service innovant en identifiant les propositions de valeurs et en évaluant les solutions proposées",
       "AC15.06": "Interagir au sein des organisations",
@@ -223,7 +240,7 @@ const SAE = {
     titre: "Construire sa présence en ligne",
     compétences: ["Entreprendre"],
     description:
-      "L’étudiant doit réfléchir à la manière dont il souhaite être présent en ligne. Cela peut commencer par une analyse de l’existant, tant pour lui que pour des profils similaires. Il est intéressant d’étudier les outils à disposition (réseaux sociaux spécialisés, développement d’un site web, CMS...).",
+      "L’étudiant doit réfléchir à la manière dont il souhaite être présent en ligne. Cela peut commencer par une analyse de l’existant, tant pour lui que pour des profils similaires. Il est intéressant d’étudier les outils à disposition (réseaux sociaux spécialisés, développement d’un site web, CMS...).<br>L’étudiant peut ensuite faire un choix de présence en ligne, doit être capable de l’argumenter et de le mettre en place efficacement.<br>Une réflexion sur la manière de mettre en avant ses compétences, ses réalisations doit être mise en place.",
     AC: {
       "AC15.05":
         "Construire une présence en ligne professionnelle (personal branding)",

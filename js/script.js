@@ -4,63 +4,18 @@ const scrollTopButton = document.querySelector(".back-to-top");
 let SAEs;
 let seeMore;
 let projectSAE;
+let SAEContainer;
+let moveButtons = {
+  previous: {},
+  next: {},
+};
 
-try {
-  SAEs = Object.keys(SAE);
-  projectSAE = document.querySelector(".projects.folder .saes");
-} catch (e) {}
-
-try {
-  seeMore = document.querySelector(".projects.home .project.see-more");
-} catch (e) {}
-
-if (projectSAE) {
-  SAEs.forEach((sitae) => {
-    let comps = Object.values(SAE[sitae]["compétences"]);
-    projectSAE.innerHTML += `
-    <div class="sae">
-      <div class="name enhance">${sitae}</div>
-      <div class="title">${SAE[sitae].titre}</div>
-      <div class="acs">
-        <div class="ac">
-          ${comps.join('</div><div class="ac">')}
-        </div>
-      </div>
-    <div>
-    `;
-  });
-}
-
-window.addEventListener("scroll", () => {
-  if (
-    document.body.scrollTop > 300 ||
-    document.documentElement.scrollTop > 300
-  ) {
-    scrollTopButton.classList.add("active");
-  } else {
-    scrollTopButton.classList.remove("active");
-  }
-});
-
-window.addEventListener("load", () => {
-  themes.forEach((theme) => {
-    theme.addEventListener("click", () => {
-      storeTheme(theme.id);
-    });
-  });
-
-  if (seeMore) {
-    seeMoreEvents();
-  }
-
-  applyTheme();
-  createBurgerMenu();
-  listenToBurger();
-  scrollTopButton.addEventListener("click", scrollToTop);
-
-  // Always last : activates all transitions.
-  document.querySelector("body").classList.remove("preload");
-});
+const getSAEData = (sae) => {
+  return {
+    semester: sae.split(".")[0].split("").pop(),
+    number: sae.split(".")[1].split("").pop(),
+  };
+};
 
 const seeMoreEvents = () => {
   seeMore.addEventListener("click", () => {
@@ -118,11 +73,196 @@ const listenToBurger = () => {
     });
   });
 
-  burger.addEventListener("click", () => {
+  const toggleMenu = () => {
     placeHolder.classList.toggle("active");
     burgerMenu.classList.toggle("burger-shown");
     header.classList.toggle("fixed");
     burgerSvg.classList.toggle("white-svg");
     logo.classList.toggle("burger-header");
-  });
+  };
+
+  burger.addEventListener("click", toggleMenu);
 };
+
+window.addEventListener("load", () => {
+  themes.forEach((theme) => {
+    theme.addEventListener("click", () => {
+      storeTheme(theme.id);
+    });
+  });
+
+  if (seeMore) {
+    seeMoreEvents();
+  }
+
+  applyTheme();
+  createBurgerMenu();
+  listenToBurger();
+  scrollTopButton.addEventListener("click", scrollToTop);
+
+  // Always last : activates all transitions.
+  document.querySelector("body").classList.remove("preload");
+});
+
+try {
+  SAEs = Object.keys(SAE);
+  projectSAE = document.querySelector(".projects.folder .saes");
+} catch (e) {}
+
+try {
+  SAEContainer = document.querySelector("main > .sae");
+  moveButtons.previous = document.querySelector("main > .sae .sae-previous");
+  moveButtons.next = document.querySelector("main > .sae .sae-next");
+} catch (e) {}
+
+try {
+  seeMore = document.querySelector(".projects.home .project.see-more");
+} catch (e) {}
+
+if (SAEContainer) {
+  let queries = new URLSearchParams(window.location.search);
+  let currentSAE = queries.get("sae");
+  let ACKeys = Object.keys(SAE[currentSAE]["AC"]);
+  let RSKeys = Object.keys(SAE[currentSAE]["ressources"]);
+  let saeData = getSAEData(currentSAE);
+  console.log(saeData);
+  if (saeData.number <= 1) {
+    if (
+      SAE[
+        `SAE${parseInt(saeData.semester) - 1}.0${
+          SAE["infos"][parseInt(parseInt(saeData.semester))].maxSAE
+        }`
+      ]
+    ) {
+      moveButtons.previous.classList.remove("disabled");
+      moveButtons.previous.href = `sae.html?sae=SAE${
+        parseInt(saeData.semester) - 1
+      }.0${SAE["infos"][parseInt(saeData.number)].maxSAE}`;
+    }
+    if (
+      SAE[`SAE${parseInt(saeData.semester)}.0${parseInt(saeData.number) + 1}`]
+    ) {
+      moveButtons.next.classList.remove("disabled");
+      moveButtons.next.href = `sae.html?sae=SAE${parseInt(saeData.semester)}.0${
+        parseInt(saeData.number) + 1
+      }`;
+    }
+  } else if (
+    SAE["infos"][parseInt(saeData.semester)].maxSAE == saeData.number
+  ) {
+    if (
+      SAE[`SAE${parseInt(saeData.semester)}.0${parseInt(saeData.number) - 1}`]
+    ) {
+      moveButtons.previous.classList.remove("disabled");
+      moveButtons.previous.href = `sae.html?sae=SAE${parseInt(
+        saeData.semester
+      )}.0${parseInt(saeData.number) - 1}`;
+    }
+
+    if (
+      SAE[
+        `SAE${parseInt(saeData.semester) + 1}.0${
+          SAE["infos"][parseInt(parseInt(saeData.semester))].minSAE
+        }`
+      ]
+    ) {
+      moveButtons.next.classList.remove("disabled");
+      moveButtons.next.href = `sae.html?sae=SAE${
+        parseInt(saeData.semester) + 1
+      }.0${SAE["infos"][parseInt(parseInt(saeData.semester))].minSAE}`;
+    }
+  } else {
+    if (
+      SAE[`SAE${parseInt(saeData.semester)}.0${parseInt(saeData.number) - 1}`]
+    ) {
+      moveButtons.previous.classList.remove("disabled");
+      moveButtons.previous.href = `sae.html?sae=SAE${parseInt(
+        saeData.semester
+      )}.0${parseInt(saeData.number) - 1}`;
+    }
+    if (
+      SAE[`SAE${parseInt(saeData.semester)}.0${parseInt(saeData.number) + 1}`]
+    ) {
+      moveButtons.next.classList.remove("disabled");
+      moveButtons.next.href = `sae.html?sae=SAE${parseInt(saeData.semester)}.0${
+        parseInt(saeData.number) + 1
+      }`;
+    }
+  }
+  let html = `
+  <div class="">
+    <div class="head">
+      <div class="name">${currentSAE}</div>
+      <div class="title">${SAE[currentSAE].titre}</div>
+    </div>
+    <div class="desc">${SAE[currentSAE].description}</div>
+    <div class="skills">
+      <div class="skill">
+      ${SAE[currentSAE]["compétences"].join('</div><div class="skill">')}
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <div class="acs">`;
+  ACKeys.forEach((ac) => {
+    html += `<div class="ac">${ac}</div>`;
+  });
+  html += `</div><div class="full-acs">`;
+  ACKeys.forEach((ac) => {
+    html += `<div class="ac">${ac} : ${SAE[currentSAE]["AC"][ac]}</div>`;
+  });
+  html += `</div><div class="resources">`;
+  RSKeys.forEach((rs) => {
+    html += `<div class="rs">${rs}</div>`;
+  });
+  html += `</div><div class="full-resources">`;
+  RSKeys.forEach((rs) => {
+    html += `<div class="rs">${rs} : ${SAE[currentSAE]["ressources"][rs]}</div>`;
+  });
+  html += `
+    </div>
+    <div class="semester">${SAE[currentSAE]["semestre"]}</div>
+  </div>
+  `;
+  SAEContainer.innerHTML += html;
+}
+
+if (projectSAE) {
+  SAEs.forEach((sitae) => {
+    if (sitae == "infos") {
+      return;
+    }
+    let comps = Object.values(SAE[sitae]["compétences"]);
+    projectSAE.innerHTML += `
+    <div class="sae">
+      <a class="name enhance" href="/projects/sae.html?sae=${sitae}">${sitae}</a>
+      <div class="title">${SAE[sitae].titre}</div>
+      <hr>
+      <div class="cps">
+        <div class="cp icon">
+          CP
+        </div>
+        <div class="cp names">
+          <div class="cp name">
+            ${comps.join('</div><div class="cp name">')}
+          </div>
+        </div>
+      </div>
+      <a class="cp see-more" href="/projects/sae.html?sae=${sitae}">
+        <span>+</span>
+      </a>
+    <div>
+    `;
+  });
+}
+
+window.addEventListener("scroll", () => {
+  if (
+    document.body.scrollTop > 300 ||
+    document.documentElement.scrollTop > 300
+  ) {
+    scrollTopButton.classList.add("active");
+  } else {
+    scrollTopButton.classList.remove("active");
+  }
+});
