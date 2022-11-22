@@ -190,7 +190,7 @@ if (SAEContainer) {
     }
   }
   let html = `
-  <div class="">
+  <div class="header">
     <div class="head">
       <div class="name">${currentSAE}</div>
       <div class="title">${SAE[currentSAE].titre}</div>
@@ -202,14 +202,21 @@ if (SAEContainer) {
       </div>
     </div>
   </div>
-  <div class="">
+  <div class="body">
     <div class="acs">`;
   ACKeys.forEach((ac) => {
     html += `<div class="ac">${ac}</div>`;
   });
   html += `</div><div class="full-acs">`;
   ACKeys.forEach((ac) => {
-    html += `<div class="ac">${ac} : ${SAE[currentSAE]["AC"][ac]}</div>`;
+    html += `<div class="ac">
+              <div class="name">
+                ${ac}
+              </div>
+              <div class="desc">
+                ${SAE[currentSAE]["AC"][ac]}
+              </div>
+            </div>`;
   });
   html += `</div><div class="resources">`;
   RSKeys.forEach((rs) => {
@@ -217,9 +224,17 @@ if (SAEContainer) {
   });
   html += `</div><div class="full-resources">`;
   RSKeys.forEach((rs) => {
-    html += `<div class="rs">${rs} : ${SAE[currentSAE]["ressources"][rs]}</div>`;
+    html += `<div class="rs">
+              <div class="name">
+                ${rs}
+              </div>
+              <div class="name">
+                ${SAE[currentSAE]["ressources"][rs]}
+              </div>
+            </div>`;
   });
   html += `
+      </div>
     </div>
     <div class="semester">${SAE[currentSAE]["semestre"]}</div>
   </div>

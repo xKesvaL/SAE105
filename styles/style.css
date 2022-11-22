@@ -674,6 +674,7 @@ main .projects.folder .saes .sae .cps:hover {
 main > .sae {
   border-radius: 35px;
   display: flex;
+  flex-direction: column;
   position: relative;
   padding: 2vw;
   background: var(--color-background-light);
@@ -745,6 +746,12 @@ main .sae .sae-next {
 main .sae .sae-next::before {
   content: ">";
   border-radius: 50% 0 50% 0;
+}
+
+main .sae .header .head .name {
+  font-size: 4rem;
+  letter-spacing: 0.2rem;
+  font-weight: 900;
 }
 
 main .sae .full-acs,
