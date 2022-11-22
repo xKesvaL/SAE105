@@ -25,12 +25,12 @@ I do not own every bit of the code you see in the repo, as some comes from other
 The icons you see on the website are from :
 
 - iconsvg.xyz for every SVG icon
-- iconinder.com for every PNG icon from projects
+- iconfinder.com for every PNG icon from projects
 - github.com for the github PNG in the footer
 
 Credits to the people for some of the code :
 
-- Kevin Powell (Theme Switcher)
+- Kevin Powell (Theme Switcher, Projects search bar)
 
 ---
 

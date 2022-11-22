@@ -4,6 +4,7 @@ const scrollTopButton = document.querySelector(".back-to-top");
 let SAEs;
 let seeMore;
 let projectSAE;
+let searchBar;
 let SAEContainer;
 let moveButtons = {
   previous: {},
@@ -84,29 +85,14 @@ const listenToBurger = () => {
   burger.addEventListener("click", toggleMenu);
 };
 
-window.addEventListener("load", () => {
-  themes.forEach((theme) => {
-    theme.addEventListener("click", () => {
-      storeTheme(theme.id);
-    });
-  });
-
-  if (seeMore) {
-    seeMoreEvents();
-  }
-
-  applyTheme();
-  createBurgerMenu();
-  listenToBurger();
-  scrollTopButton.addEventListener("click", scrollToTop);
-
-  // Always last : activates all transitions.
-  document.querySelector("body").classList.remove("preload");
-});
+const searchSAE = (query) => {
+  console.log(query);
+};
 
 try {
   SAEs = Object.keys(SAE);
   projectSAE = document.querySelector(".projects.folder .saes");
+  searchBar = document.querySelector(".projects.folder .search-bar input");
 } catch (e) {}
 
 try {
@@ -243,27 +229,19 @@ if (SAEContainer) {
 }
 
 if (projectSAE) {
+  searchBar.addEventListener("keyup", (e) => {
+    searchSAE(searchBar.value);
+  });
+  console.log(searchBar);
   SAEs.forEach((sitae) => {
     if (sitae == "infos") {
       return;
     }
-    let comps = Object.values(SAE[sitae]["compétences"]);
     projectSAE.innerHTML += `
     <div class="sae">
       <a class="name enhance" href="/projects/sae.html?sae=${sitae}">${sitae}</a>
       <div class="title">${SAE[sitae].titre}</div>
-      <hr>
-      <div class="cps">
-        <div class="cp icon">
-          CP
-        </div>
-        <div class="cp names">
-          <div class="cp name">
-            ${comps.join('</div><div class="cp name">')}
-          </div>
-        </div>
-      </div>
-      <a class="cp see-more" href="/projects/sae.html?sae=${sitae}">
+      <a class="see-more" href="/projects/sae.html?sae=${sitae}">
         <span>+</span>
       </a>
     <div>
@@ -280,4 +258,24 @@ window.addEventListener("scroll", () => {
   } else {
     scrollTopButton.classList.remove("active");
   }
+});
+
+window.addEventListener("load", () => {
+  themes.forEach((theme) => {
+    theme.addEventListener("click", () => {
+      storeTheme(theme.id);
+    });
+  });
+
+  if (seeMore) {
+    seeMoreEvents();
+  }
+
+  applyTheme();
+  createBurgerMenu();
+  listenToBurger();
+  scrollTopButton.addEventListener("click", scrollToTop);
+
+  // Always last : activates all transitions.
+  document.querySelector("body").classList.remove("preload");
 });
