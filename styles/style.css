@@ -614,7 +614,7 @@ main .projects.folder .search-bar button {
 main .projects.folder .search-bar button svg {
   stroke: var(--color-font);
   stroke-width: 1;
-  width: 2vw;
+  width: 2.75vw;
   aspect-ratio: 1;
 }
 
@@ -1003,6 +1003,10 @@ footer .links svg {
   main .projects.folder .saes .sae .title {
     font-size: 1.25rem;
   }
+
+  main .projects.folder .search-bar svg {
+    width: 2vw !important;
+  }
 }
 
 /* XL-Size 1200px Breakpoint */
@@ -1042,6 +1046,10 @@ footer .links svg {
 
   main .projects.folder .saes {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  main .projects.folder .search-bar svg {
+    width: 4vw !important;
   }
 
   .theme-switcher fieldset {
@@ -1124,6 +1132,14 @@ footer .links svg {
 
   main .projects.home .project .text .logo {
     height: 3vw;
+  }
+
+  main .projects.folder .saes .sae {
+    padding: 2.5vw;
+  }
+
+  main .projects.folder .search-bar svg {
+    width: 5vw !important;
   }
 
   .theme-switcher fieldset {
@@ -1217,6 +1233,19 @@ footer .links svg {
 
   main .projects.folder .saes {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2vh 2vw;
+  }
+
+  main .projects.folder .saes .sae {
+    padding: 3vw;
+  }
+
+  main .projects.folder .search-bar input {
+    font-size: 2.25rem;
+  }
+
+  main .projects.folder .search-bar svg {
+    width: 6vw !important;
   }
 
   .theme-switcher fieldset {
@@ -1366,6 +1395,18 @@ footer .links svg {
 
   main .projects.folder .saes {
     grid-template-columns: 1fr
+  }
+
+  main .projects.folder .saes .sae {
+    padding: 3.5vw;
+  }
+
+  main .projects.folder .search-bar input {
+    font-size: 1.1rem;
+  }
+
+  main .projects.folder .search-bar svg {
+    width: 6vw !important;
   }
 
   .theme-switcher fieldset {
