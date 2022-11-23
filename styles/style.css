@@ -261,7 +261,7 @@ This is in case I ever want to cover browsers that don't allow :has. (no)
   --color-font-inverted: black;
   --color-primary-light: #ff71db;
   --color-primary: #ff1acd;
-  --color-primary-dark: #00087b;
+  --color-primary-dark: #7b006b;
   --theme-invert: 100%;
 }
 
@@ -420,7 +420,7 @@ main {
 
 main > div {
   /* outline: solid 1px black; */
-  min-height: 60vh;
+  min-height: 30vh;
   margin: 7.5vh 5vw;
   display: flex;
   justify-content: space-between;
@@ -430,7 +430,7 @@ main > div {
 /* --- ## About --- */
 
 main > div:first-child {
-  min-height: 70vh;
+  min-height: 45vh;
   margin-inline: 10vw;
 }
 
@@ -634,6 +634,7 @@ main .projects.folder .saes .sae {
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  transition: 0.3s linear;
 }
 
 main .projects.folder .saes .sae.hidden {
@@ -649,6 +650,7 @@ main .projects.folder .saes .sae > .name {
 main .projects.folder .saes .sae .title {
   font-size: 0.8rem;
   color: var(--color-font-ultralight);
+  max-width: 90%;
 }
 
 main .projects.folder .saes .sae .see-more {
@@ -876,7 +878,7 @@ main .projects.home .project .text {
 main .projects.home .project .text .type {
   font-weight: 900;
   font-size: 1.2rem;
-  margin-bottom: 2vw;
+  margin-bottom: 2vh;
 }
 
 main .projects.home .project:first-child .text .type {
@@ -921,14 +923,6 @@ main .projects.home .project .text .logo img {
   height: 100%;
 }
 
-/* --- ### Projects Page */
-
-main .projects.folder .sidebar {
-  min-height: 85vh;
-  min-width: 20vw;
-  background: var(--color-background-light);
-}
-
 /* --- # Footer --- */
 
 footer {
@@ -966,12 +960,58 @@ footer .links svg {
   stroke-width: 1;
 }
 
+/* XXL-Size 2000px min Breakpoint */
+
+@media screen and (min-width: 2000px) {
+  header .trademark a {
+    font-size: 4rem;
+  }
+
+  header .trademark .logo {
+    max-height: 100px;
+  }
+
+  header .pages .page {
+    font-size: 2rem;
+  }
+
+  main .about .myself-text h2 {
+    font-size: 5rem;
+  }
+
+  main .about .myself-text p {
+    font-size: 2rem;
+  }
+
+  main .projects.home .list .project .text .type {
+    font-size: 1.75rem;
+    margin-bottom: 2vh;
+  }
+
+  main .projects.home .list .project .text .title {
+    font-size: 3rem;
+  }
+
+  main .projects.home .list .project .text .desc {
+    font-size: 2rem;
+  }
+
+  main .projects.folder .saes .sae .name {
+    font-size: 3rem;
+  }
+
+  main .projects.folder .saes .sae .title {
+    font-size: 1.25rem;
+  }
+}
+
 /* XL-Size 1200px Breakpoint */
 
 @media screen and (max-width: 1200px) {
   main > div:first-child {
     margin-inline: 5vw;
   }
+  
 
   main .about {
     margin-top: 2vw;
@@ -998,6 +1038,10 @@ footer .links svg {
 
   main .projects.home .project .text .desc {
     font-size: 1rem;
+  }
+
+  main .projects.folder .saes {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .theme-switcher fieldset {
@@ -1171,6 +1215,10 @@ footer .links svg {
     padding: 2.5vw 2.5vw;
   }
 
+  main .projects.folder .saes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .theme-switcher fieldset {
     gap: 1vw;
     width: 13vw;
@@ -1314,6 +1362,10 @@ footer .links svg {
   main .projects.home .project.see-more::before {
     font-size: 5vw;
     padding: 4vw 4vw;
+  }
+
+  main .projects.folder .saes {
+    grid-template-columns: 1fr
   }
 
   .theme-switcher fieldset {
