@@ -75,7 +75,7 @@ const SAE = {
   },
 
   "SAE1.04": {
-    titre: "Produire un contenu audio et vidéo",
+    titre: "Produire un contenu audio et vidéo analytique",
     compétences: ["Exprimer"],
     description:
       "Cette SAE permet aux étudiants d’explorer les bases de la production audiovisuelle pour répondre à un objectif de communication simple, dans un contexte international.<br>Elle permet de découvrir les outils et méthodes de conception de scénario multimédia.<br>Une partie significative des voix-off, des sous-titres ou incrustations doit être en <b>anglais</b> ou dans une autre langue étrangère.",
@@ -96,7 +96,7 @@ const SAE = {
   },
 
   "SAE1.05": {
-    titre: "Produire un site Web",
+    titre: "Produire un site Web responsive et l'héberger sur Github",
     compétences: ["Développer"],
     description:
       "En tant qu’intégrateurs ou développeurs juniors dans une agence Web, les étudiants doivent mener un travail de conception, d’intégration et de développement des vues d’un site Web. Le cahier des charges comprend la description des éléments statiques de l’application et un jeu de données structurées représentant un échantillon des contenus à mettre en ligne.",
@@ -142,7 +142,7 @@ const SAE = {
   },
 
   "SAE2.01": {
-    titre: "Explorer les usages du numérique",
+    titre: "Explorer et analyser les usages du numérique ",
     compétences: ["Comprendre"],
     description:
       "Les étudiants réalisent une étude des besoins et des usages pour un site ou un service web et produisent un cahier des charges ou un dossier d’analyse des attentes.",
@@ -237,7 +237,7 @@ const SAE = {
   },
 
   "SAE2.04": {
-    titre: "Construire sa présence en ligne",
+    titre: "Construire et diffuser sa présence en ligne",
     compétences: ["Entreprendre"],
     description:
       "L’étudiant doit réfléchir à la manière dont il souhaite être présent en ligne. Cela peut commencer par une analyse de l’existant, tant pour lui que pour des profils similaires. Il est intéressant d’étudier les outils à disposition (réseaux sociaux spécialisés, développement d’un site web, CMS...).<br>L’étudiant peut ensuite faire un choix de présence en ligne, doit être capable de l’argumenter et de le mettre en place efficacement.<br>Une réflexion sur la manière de mettre en avant ses compétences, ses réalisations doit être mise en place.",

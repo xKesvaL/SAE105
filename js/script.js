@@ -86,7 +86,29 @@ const listenToBurger = () => {
 };
 
 const searchSAE = (query) => {
-  console.log(query);
+  let saeElements = document.querySelectorAll(".projects.folder .sae");
+  if (query && query.trim().length > 0) {
+    query = query.toLowerCase().split(".").join("").split("0").join("");
+    let keys = Object.keys(SAE);
+    keys.forEach((key, i) => {
+      if (key == "infos") {
+        return;
+      }
+
+      let isVisible = key
+        .toLowerCase()
+        .split(".")
+        .join("")
+        .split("0")
+        .join("")
+        .includes(query);
+      saeElements[i - 1].classList.toggle("hidden", !isVisible);
+    });
+  } else {
+    saeElements.forEach((el) => {
+      el.classList.remove("hidden");
+    });
+  }
 };
 
 try {
@@ -178,8 +200,11 @@ if (SAEContainer) {
   let html = `
   <div class="header">
     <div class="head">
-      <div class="name">${currentSAE}</div>
-      <div class="title">${SAE[currentSAE].titre}</div>
+      <div>
+        <div class="name">${currentSAE}</div>
+        <div class="title">${SAE[currentSAE].titre}</div>
+      </div>
+      <div class="img"><img src="/img/sae/${currentSAE}/1.png" alt="${currentSAE}"></div>
     </div>
     <div class="desc">${SAE[currentSAE].description}</div>
     <div class="skills">
@@ -229,10 +254,6 @@ if (SAEContainer) {
 }
 
 if (projectSAE) {
-  searchBar.addEventListener("keyup", (e) => {
-    searchSAE(searchBar.value);
-  });
-  console.log(searchBar);
   SAEs.forEach((sitae) => {
     if (sitae == "infos") {
       return;
@@ -247,6 +268,10 @@ if (projectSAE) {
     <div>
     `;
   });
+  searchBar.addEventListener("keyup", (e) => {
+    searchSAE(e.target.value);
+  });
+  console.log(searchBar);
 }
 
 window.addEventListener("scroll", () => {

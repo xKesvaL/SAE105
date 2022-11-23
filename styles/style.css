@@ -570,6 +570,7 @@ main .projects {
 
 main .projects.folder {
   margin-inline: 5vw;
+  margin-top: 5vh;
   min-height: 50vh;
   display: flex;
   flex-direction: column;
@@ -591,7 +592,6 @@ main .projects.folder .search-bar:has(input:focus) {
 
 main .projects.folder .search-bar input {
   background: var(--color-background-light);
-  flex-grow: 1;
   font-size: 2.5rem;
   padding: 0.5vw 1vw;
   color: var(--color-font);
@@ -636,6 +636,10 @@ main .projects.folder .saes .sae {
   overflow: hidden;
 }
 
+main .projects.folder .saes .sae.hidden {
+  display: none;
+}
+
 main .projects.folder .saes .sae > .name {
   font-size: 2rem;
   font-weight: 700;
@@ -658,7 +662,7 @@ main .projects.folder .saes .sae .see-more {
   height: 35%;
   border-radius: 25px 0 25px 0;
   background-color: var(--color-primary);
-  color: var(--color-font);
+  color: var(--st-color-font);
   transition: 0.25s linear;
   text-decoration: none;
 }
@@ -756,10 +760,36 @@ main .sae .sae-next::before {
   border-radius: 25px 0 25px 0;
 }
 
+main .sae .header .head {
+  margin-bottom: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 main .sae .header .head .name {
   font-size: 4rem;
   letter-spacing: 0.2rem;
   font-weight: 900;
+}
+
+main .sae .header .head .title {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-font-light);
+}
+
+main .sae .header .head .img {
+  width: 20%;
+  height: 20%;
+  margin-right: 4vw;
+}
+
+main .sae .header .head .img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
 }
 
 main .sae .full-acs,
