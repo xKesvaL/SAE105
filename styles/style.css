@@ -642,13 +642,13 @@ main .projects.folder .saes .sae.hidden {
 }
 
 main .projects.folder .saes .sae > .name {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   width: fit-content;
 }
 
 main .projects.folder .saes .sae .title {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--color-font-ultralight);
   max-width: 90%;
 }

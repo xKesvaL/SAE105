@@ -11,9 +11,10 @@ let moveButtons = {
   next: {},
 };
 
-const isFirefox = (document.getBoxObjectFor != null || window.mozInnerScreenX != null);
+const isFirefox =
+  document.getBoxObjectFor != null || window.mozInnerScreenX != null;
 if (isFirefox) {
-    document.querySelector('.theme-switcher').remove()
+  document.querySelector(".theme-switcher").remove();
 }
 
 const getSAEData = (sae) => {
@@ -93,7 +94,15 @@ const listenToBurger = () => {
 const searchSAE = (query) => {
   let saeElements = document.querySelectorAll(".projects.folder .sae");
   if (query && query.trim().length > 0) {
-    query = query.toLowerCase().split(".").join("").split("0").join("").split(/\s+/g).join('')
+    query = query
+      .toLowerCase()
+      .split(".")
+      .join("")
+      .split("0")
+      .join("")
+      .split(/\s+/g)
+      .join("")
+      .replace("é", "e");
     let keys = Object.keys(SAE);
     keys.forEach((key, i) => {
       if (key == "infos") {
