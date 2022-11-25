@@ -261,7 +261,7 @@ This is in case I ever want to cover browsers that don't allow :has. (no)
   --color-font-inverted: black;
   --color-primary-light: #ff71db;
   --color-primary: #ff1acd;
-  --color-primary-dark: #7b006b;
+  --color-primary-dark: #00087b;
   --theme-invert: 100%;
 }
 
@@ -420,7 +420,7 @@ main {
 
 main > div {
   /* outline: solid 1px black; */
-  min-height: 30vh;
+  min-height: 60vh;
   margin: 7.5vh 5vw;
   display: flex;
   justify-content: space-between;
@@ -430,7 +430,7 @@ main > div {
 /* --- ## About --- */
 
 main > div:first-child {
-  min-height: 45vh;
+  min-height: 70vh;
   margin-inline: 10vw;
 }
 
@@ -614,7 +614,7 @@ main .projects.folder .search-bar button {
 main .projects.folder .search-bar button svg {
   stroke: var(--color-font);
   stroke-width: 1;
-  width: 2.75vw;
+  width: 2vw;
   aspect-ratio: 1;
 }
 
@@ -634,7 +634,6 @@ main .projects.folder .saes .sae {
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  transition: 0.3s linear;
 }
 
 main .projects.folder .saes .sae.hidden {
@@ -642,15 +641,14 @@ main .projects.folder .saes .sae.hidden {
 }
 
 main .projects.folder .saes .sae > .name {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   width: fit-content;
 }
 
 main .projects.folder .saes .sae .title {
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: var(--color-font-ultralight);
-  max-width: 90%;
 }
 
 main .projects.folder .saes .sae .see-more {
@@ -763,7 +761,7 @@ main .sae .sae-next::before {
 }
 
 main .sae .header .head {
-  margin-bottom: 5vh;
+  margin-bottom: 2vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -779,7 +777,7 @@ main .sae .header .head .title {
   position: relative;
   font-size: 1.5rem;
   font-weight: 300;
-  color: var(--color-font-light);
+  color: var(--color-font-ultralight);
 }
 
 main .sae .header .head .img {
@@ -792,6 +790,12 @@ main .sae .header .head .img img {
   width: 100%;
   height: 100%;
   border-radius: 5px;
+}
+
+main .sae .header .desc {
+  font-size: 1rem;
+  max-width: 70%;
+  margin-top: -5vh;
 }
 
 main .sae .full-acs,
@@ -878,7 +882,7 @@ main .projects.home .project .text {
 main .projects.home .project .text .type {
   font-weight: 900;
   font-size: 1.2rem;
-  margin-bottom: 2vh;
+  margin-bottom: 2vw;
 }
 
 main .projects.home .project:first-child .text .type {
@@ -960,62 +964,12 @@ footer .links svg {
   stroke-width: 1;
 }
 
-/* XXL-Size 2000px min Breakpoint */
-
-@media screen and (min-width: 2000px) {
-  header .trademark a {
-    font-size: 4rem;
-  }
-
-  header .trademark .logo {
-    max-height: 100px;
-  }
-
-  header .pages .page {
-    font-size: 2rem;
-  }
-
-  main .about .myself-text h2 {
-    font-size: 5rem;
-  }
-
-  main .about .myself-text p {
-    font-size: 2rem;
-  }
-
-  main .projects.home .list .project .text .type {
-    font-size: 1.75rem;
-    margin-bottom: 2vh;
-  }
-
-  main .projects.home .list .project .text .title {
-    font-size: 3rem;
-  }
-
-  main .projects.home .list .project .text .desc {
-    font-size: 2rem;
-  }
-
-  main .projects.folder .saes .sae .name {
-    font-size: 3rem;
-  }
-
-  main .projects.folder .saes .sae .title {
-    font-size: 1.25rem;
-  }
-
-  main .projects.folder .search-bar svg {
-    width: 2vw !important;
-  }
-}
-
 /* XL-Size 1200px Breakpoint */
 
 @media screen and (max-width: 1200px) {
   main > div:first-child {
     margin-inline: 5vw;
   }
-  
 
   main .about {
     margin-top: 2vw;
@@ -1042,14 +996,6 @@ footer .links svg {
 
   main .projects.home .project .text .desc {
     font-size: 1rem;
-  }
-
-  main .projects.folder .saes {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  main .projects.folder .search-bar svg {
-    width: 4vw !important;
   }
 
   .theme-switcher fieldset {
@@ -1132,14 +1078,6 @@ footer .links svg {
 
   main .projects.home .project .text .logo {
     height: 3vw;
-  }
-
-  main .projects.folder .saes .sae {
-    padding: 2.5vw;
-  }
-
-  main .projects.folder .search-bar svg {
-    width: 5vw !important;
   }
 
   .theme-switcher fieldset {
@@ -1229,23 +1167,6 @@ footer .links svg {
   main .projects.home .project.see-more::before {
     font-size: 1.25rem;
     padding: 2.5vw 2.5vw;
-  }
-
-  main .projects.folder .saes {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2vh 2vw;
-  }
-
-  main .projects.folder .saes .sae {
-    padding: 3vw;
-  }
-
-  main .projects.folder .search-bar input {
-    font-size: 2.25rem;
-  }
-
-  main .projects.folder .search-bar svg {
-    width: 6vw !important;
   }
 
   .theme-switcher fieldset {
@@ -1391,22 +1312,6 @@ footer .links svg {
   main .projects.home .project.see-more::before {
     font-size: 5vw;
     padding: 4vw 4vw;
-  }
-
-  main .projects.folder .saes {
-    grid-template-columns: 1fr
-  }
-
-  main .projects.folder .saes .sae {
-    padding: 3.5vw;
-  }
-
-  main .projects.folder .search-bar input {
-    font-size: 1.1rem;
-  }
-
-  main .projects.folder .search-bar svg {
-    width: 6vw !important;
   }
 
   .theme-switcher fieldset {
