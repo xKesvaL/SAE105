@@ -59,6 +59,7 @@ const applyTheme = () => {
   */
 };
 
+
 const createBurgerMenu = () => {
   let pages = document.querySelector("header .pages");
   let menu = document.querySelector("body").appendChild(pages.cloneNode(true));
@@ -147,13 +148,12 @@ if (SAEContainer) {
   let ACKeys = Object.keys(SAE[currentSAE]["AC"]);
   let RSKeys = Object.keys(SAE[currentSAE]["ressources"]);
   let saeData = getSAEData(currentSAE);
-  console.log(saeData);
   if (saeData.number <= 1) {
     if (
       SAE[
         `SAE${parseInt(saeData.semester) - 1}.0${
           SAE["infos"][parseInt(parseInt(saeData.semester))].maxSAE
-        }`
+        }`  
       ]
     ) {
       moveButtons.previous.classList.remove("disabled");
@@ -222,19 +222,21 @@ if (SAEContainer) {
     </div>
     <div class="desc">${SAE[currentSAE].description}</div>
     <div class="skills">
+      <h1 class="skill-title">Compétences :</h1>
       <div class="skill">
       ${SAE[currentSAE]["compétences"].join('</div><div class="skill">')}
       </div>
     </div>
   </div>
   <div class="body">
+
     <div class="acs">`;
   ACKeys.forEach((ac) => {
     html += `<div class="ac">${ac}</div>`;
   });
   html += `</div><div class="full-acs">`;
   ACKeys.forEach((ac) => {
-    html += `<div class="ac">
+    html += `<div class="ac" id="${ac}">
               <div class="name">
                 ${ac}
               </div>
@@ -249,7 +251,7 @@ if (SAEContainer) {
   });
   html += `</div><div class="full-resources">`;
   RSKeys.forEach((rs) => {
-    html += `<div class="rs">
+    html += `<div class="rs" id="${rs}">
               <div class="name">
                 ${rs}
               </div>
@@ -259,12 +261,12 @@ if (SAEContainer) {
             </div>`;
   });
   html += `
+        </div>
       </div>
+      <div class="semester">${SAE[currentSAE]["semestre"]}</div>
     </div>
-    <div class="semester">${SAE[currentSAE]["semestre"]}</div>
-  </div>
-  `;
-  SAEContainer.innerHTML += html;
+    `;
+    SAEContainer.innerHTML += html;
 }
 
 if (projectSAE) {
