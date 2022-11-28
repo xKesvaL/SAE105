@@ -981,6 +981,55 @@ footer .links svg {
   stroke-width: 1;
 }
 
+/* XXL-Size 2000px min Breakpoint */
+
+@media screen and (min-width: 2000px) {
+  header .trademark a {
+    font-size: 4rem;
+  }
+
+  header .trademark .logo {
+    max-height: 100px;
+  }
+
+  header .pages .page {
+    font-size: 2rem;
+  }
+
+  main .about .myself-text h2 {
+    font-size: 5rem;
+  }
+
+  main .about .myself-text p {
+    font-size: 2rem;
+  }
+
+  main .projects.home .list .project .text .type {
+    font-size: 1.75rem;
+    margin-bottom: 2vh;
+  }
+
+  main .projects.home .list .project .text .title {
+    font-size: 3rem;
+  }
+
+  main .projects.home .list .project .text .desc {
+    font-size: 2rem;
+  }
+
+  main .projects.folder .saes .sae .name {
+    font-size: 3rem;
+  }
+
+  main .projects.folder .saes .sae .title {
+    font-size: 1.25rem;
+  }
+
+  main .projects.folder .search-bar svg {
+    width: 2vw !important;
+  }
+}
+
 /* XL-Size 1200px Breakpoint */
 
 @media screen and (max-width: 1200px) {
@@ -1013,6 +1062,14 @@ footer .links svg {
 
   main .projects.home .project .text .desc {
     font-size: 1rem;
+  }
+
+  main .projects.folder .saes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  main .projects.folder .search-bar svg {
+    width: 4vw !important;
   }
 
   .theme-switcher fieldset {
@@ -1095,6 +1152,14 @@ footer .links svg {
 
   main .projects.home .project .text .logo {
     height: 3vw;
+  }
+
+  main .projects.folder .saes .sae {
+    padding: 2.5vw;
+  }
+
+  main .projects.folder .search-bar svg {
+    width: 5vw !important;
   }
 
   .theme-switcher fieldset {
@@ -1184,6 +1249,23 @@ footer .links svg {
   main .projects.home .project.see-more::before {
     font-size: 1.25rem;
     padding: 2.5vw 2.5vw;
+  }
+
+  main .projects.folder .saes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2vh 2vw;
+  }
+
+  main .projects.folder .saes .sae {
+    padding: 3vw;
+  }
+
+  main .projects.folder .search-bar input {
+    font-size: 2.25rem;
+  }
+
+  main .projects.folder .search-bar svg {
+    width: 6vw !important;
   }
 
   .theme-switcher fieldset {
@@ -1329,6 +1411,22 @@ footer .links svg {
   main .projects.home .project.see-more::before {
     font-size: 5vw;
     padding: 4vw 4vw;
+  }
+
+  main .projects.folder .saes {
+    grid-template-columns: 1fr;
+  }
+
+  main .projects.folder .saes .sae {
+    padding: 3.5vw;
+  }
+
+  main .projects.folder .search-bar input {
+    font-size: 1.1rem;
+  }
+
+  main .projects.folder .search-bar svg {
+    width: 6vw !important;
   }
 
   .theme-switcher fieldset {
