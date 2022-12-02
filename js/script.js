@@ -59,7 +59,6 @@ const applyTheme = () => {
   */
 };
 
-
 const createBurgerMenu = () => {
   let pages = document.querySelector("header .pages");
   let menu = document.querySelector("body").appendChild(pages.cloneNode(true));
@@ -126,23 +125,45 @@ const searchSAE = (query) => {
   }
 };
 
-try {
-  SAEs = Object.keys(SAE);
-  projectSAE = document.querySelector(".projects.folder .saes");
-  searchBar = document.querySelector(".projects.folder .search-bar input");
-} catch (e) {}
+const setUpModals = () => {
+  if (!SAEContainer) return;
+  document.querySelectorAll(".acs .ac").forEach(async (elem) => {
+    let fullElem = document.getElementById(elem.innerText);
+    let splits = elem.innerText.split(".");
 
-try {
-  SAEContainer = document.querySelector("main > .sae");
-  moveButtons.previous = document.querySelector("main > .sae .sae-previous");
-  moveButtons.next = document.querySelector("main > .sae .sae-next");
-} catch (e) {}
+    fullElem.innerHTML += await fetchAC(splits);
 
-try {
-  seeMore = document.querySelector(".projects.home .project.see-more");
-} catch (e) {}
+    elem.addEventListener("click", () => {
+      fullElem.showModal();
+    });
+  });
 
-if (SAEContainer) {
+  document.querySelectorAll(".resources .rs").forEach(async (elem) => {
+    let fullElem = document.getElementById(elem.innerText);
+
+    elem.addEventListener("click", () => {
+      fullElem.showModal();
+    });
+  });
+};
+
+const fetchAC = async (splits) => {
+  let ue = splits[0].slice(2);
+  let nb = splits[1];
+  return await fetch(`/projects/AC/${ue}/${nb}.html`).then((res) => {
+    return res.text();
+  });
+};
+
+const closeModal = (element) => {
+  if (!SAEContainer) return;
+  element.parentElement.close();
+};
+
+const checkNextPrevious = () => {};
+
+const showOneSAE = () => {
+  if (!SAEContainer) return;
   let queries = new URLSearchParams(window.location.search);
   let currentSAE = queries.get("sae");
   let ACKeys = Object.keys(SAE[currentSAE]["AC"]);
@@ -153,7 +174,7 @@ if (SAEContainer) {
       SAE[
         `SAE${parseInt(saeData.semester) - 1}.0${
           SAE["infos"][parseInt(parseInt(saeData.semester))].maxSAE
-        }`  
+        }`
       ]
     ) {
       moveButtons.previous.classList.remove("disabled");
@@ -221,29 +242,28 @@ if (SAEContainer) {
       <div class="img"><img src="/img/sae/${currentSAE}/1.png" alt="${currentSAE}"></div>
     </div>
     <div class="desc">${SAE[currentSAE].description}</div>
-    <div class="skills">
-      <h1 class="skill-title">Compétences :</h1>
-      <div class="skill">
-      ${SAE[currentSAE]["compétences"].join('</div><div class="skill">')}
-      </div>
-    </div>
+    <ul class="skills">
+      <h1 class="skill-title">Compétences</h1>
+      <li class="sep">|</li>
+      <li class="skill">
+      ${SAE[currentSAE]["compétences"].join('</li><li class="skill">')}
+      </li>
+      <li class="sep">|</li>
+    </ul>
   </div>
   <div class="body">
-
-    <div class="acs">`;
+    <div class="ac-rs">
+      <div class="acs">`;
   ACKeys.forEach((ac) => {
     html += `<div class="ac">${ac}</div>`;
   });
   html += `</div><div class="full-acs">`;
   ACKeys.forEach((ac) => {
-    html += `<div class="ac" id="${ac}">
-              <div class="name">
-                ${ac}
-              </div>
-              <div class="desc">
-                ${SAE[currentSAE]["AC"][ac]}
-              </div>
-            </div>`;
+    html += `<dialog class="ac" id="${ac}">
+                <button onclick="closeModal(this)" class="close-button">XXXX</button>
+                <div class="name">${ac}</div>
+                <div class="desc">${SAE[currentSAE]["AC"][ac]}</div>
+              </dialog>`;
   });
   html += `</div><div class="resources">`;
   RSKeys.forEach((rs) => {
@@ -251,23 +271,40 @@ if (SAEContainer) {
   });
   html += `</div><div class="full-resources">`;
   RSKeys.forEach((rs) => {
-    html += `<div class="rs" id="${rs}">
-              <div class="name">
-                ${rs}
-              </div>
-              <div class="name">
-                ${SAE[currentSAE]["ressources"][rs]}
-              </div>
-            </div>`;
+    html += `<dialog class="rs" id="${rs}">
+                <button onclick="closeModal(this)" class="close-button">XXXX</button>
+                <div class="name">${rs}</div>
+                <div class="desc">${SAE[currentSAE]["ressources"][rs]}</div>
+              </dialog>`;
   });
   html += `
+          </div>
         </div>
       </div>
       <div class="semester">${SAE[currentSAE]["semestre"]}</div>
     </div>
     `;
-    SAEContainer.innerHTML += html;
-}
+  SAEContainer.innerHTML += html;
+};
+
+try {
+  SAEs = Object.keys(SAE);
+  projectSAE = document.querySelector(".projects.folder .saes");
+  searchBar = document.querySelector(".projects.folder .search-bar input");
+} catch (e) {}
+
+try {
+  SAEContainer = document.querySelector("main > .sae");
+  moveButtons.previous = document.querySelector("main > .sae .sae-previous");
+  moveButtons.next = document.querySelector("main > .sae .sae-next");
+} catch (e) {}
+
+try {
+  seeMore = document.querySelector(".projects.home .project.see-more");
+} catch (e) {}
+
+// This whole script should be redone using functions to create elements
+// Will I do it ? Probably not
 
 if (projectSAE) {
   SAEs.forEach((sitae) => {
@@ -301,7 +338,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   themes.forEach((theme) => {
     theme.addEventListener("click", () => {
       storeTheme(theme.id);
@@ -315,6 +352,8 @@ window.addEventListener("load", () => {
   applyTheme();
   createBurgerMenu();
   listenToBurger();
+  await showOneSAE();
+  await setUpModals();
   scrollTopButton.addEventListener("click", scrollToTop);
 
   // Always last : activates all transitions.

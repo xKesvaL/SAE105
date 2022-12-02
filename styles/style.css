@@ -54,7 +54,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Montserrat", "Roboto", Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   background-color: var(--color-background);
   color: var(--color-font);
   transition: color 0.5s, background-color 0.5s, stroke 0.5s;
@@ -648,6 +648,7 @@ main .projects.folder .saes .sae > .name {
 
 main .projects.folder .saes .sae .title {
   font-size: 0.85rem;
+  max-width: 90%;
   color: var(--color-font-ultralight);
 }
 
@@ -691,7 +692,7 @@ main > .sae {
   padding: 2vw;
   background: var(--color-background-light);
   overflow: hidden;
-  height: 60vh !important;
+  min-height: 90vh !important;
   container-type: inline-size;
 }
 
@@ -700,7 +701,7 @@ main .sae .sae-previous {
   position: absolute;
   top: 0;
   background: var(--color-primary-dark);
-  font-size: 4vw;
+  font-size: 3.5vw;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -803,6 +804,17 @@ main .sae .header .desc {
 main .sae .header .skills {
   align-items: center;
   display: flex;
+  padding: 0;
+  gap: 2vw;
+  list-style: none;
+}
+
+main .sae .header .skills .sep {
+  font-size: 2rem;
+}
+
+main .sae .header .skills .skill {
+  font-size: 1.25rem;
 }
 
 main .sae .body {
@@ -813,11 +825,43 @@ main .sae .body .ac-rs {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+  align-items: flex-start;
+  margin-bottom: 7.5vh;
 }
 
-main .sae .full-acs,
-main .sae .full-resources {
-  display: none;
+main .sae .body .ac-rs .acs,
+main .sae .body .ac-rs .resources {
+  display: grid;
+  gap: 0.5vw;
+}
+
+main .sae .body .ac-rs .acs {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+main .sae .body .ac-rs .resources {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+main .sae .body .ac-rs .acs .ac,
+main .sae .body .ac-rs .resources .rs {
+  text-align: center;
+  padding: 0.5vw;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  border-radius: 10px;
+  font-size: 1.5rem;
+  transition: 0.3s ease-in;
+  color: var(--st-color-font);
+}
+
+main .sae .body .ac-rs .acs .ac:hover,
+main .sae .body .ac-rs .resources .rs:hover {
+  background-color: var(--color-primary-dark);
+}
+
+main .sae .body .ac-rs .full-acs dialog .close-button {
+  cursor: pointer;
 }
 
 /* --- ### Home Projects --- */
