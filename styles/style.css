@@ -1,8 +1,9 @@
 /* # Defaults */
 :root {
   /* Theme-Dependant */
-  --color-background-light: #181a1b;
-  --color-background: #202325;
+  --color-background-ultralight: #0a0a0a;
+  --color-background-light: #1b181b;
+  --color-background: #242025;
   --color-font: white;
   --color-font-ultralight: rgb(185, 185, 185);
   --color-font-light: rgb(240, 240, 240);
@@ -784,7 +785,7 @@ main .sae .header .head .title {
 
 main .sae .header .head .img {
   width: 25%;
-  height: 25%;
+  aspect-ratio: 4/3;
   margin-right: 4vw;
 }
 
@@ -823,8 +824,10 @@ main .sae .body {
 
 main .sae .body .ac-rs {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 5vw;
   align-items: flex-start;
   margin-bottom: 7.5vh;
 }
@@ -860,8 +863,93 @@ main .sae .body .ac-rs .resources .rs:hover {
   background-color: var(--color-primary-dark);
 }
 
-main .sae .body .ac-rs .full-acs dialog .close-button {
+main .sae .body .ac-rs dialog {
+  position: fixed;
+  flex-direction: column;
+  border: none;
+  border-radius: 25px;
+  background: var(--color-background-ultralight);
+  color: var(--color-font);
+  max-width: 50vw;
+}
+
+main .sae .body .ac-rs .full-resources dialog {
+  border-radius: 0;
+  min-width: 35vw;
+}
+
+main .sae .body .ac-rs dialog[open] {
+  display: flex;
+}
+
+main .sae .body .ac-rs dialog .close-button {
   cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  background-color: var(--color-primary);
+  width: 5%;
+  height: 13%;
+  border-radius: 0 0 0 25px;
+  transition: 0.3s;
+}
+
+main .sae .body .ac-rs .full-resources dialog .close-button {
+  border-radius: 0;
+  height: 25%;
+  width: 10%;
+}
+
+main .sae .body .ac-rs dialog .close-button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+main .sae .body .ac-rs dialog .close-button svg {
+  stroke: var(--color-font);
+  stroke-width: 1;
+  width: 100%;
+  height: 100%;
+}
+
+main .sae .body .ac-rs dialog .top {
+  margin-bottom: 2vh;
+  width: fit-content;
+}
+
+main .sae .body .ac-rs dialog .top .name {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+main .sae .body .ac-rs dialog .top .desc {
+  color: var(--color-font-ultralight);
+}
+
+main .sae .body .ac-rs .full-acs dialog .justify {
+  display: flex;
+  width: 50vw;
+  gap: 3vw;
+}
+
+main .sae .body .ac-rs .full-acs dialog .justify .trace {
+  width: 30vw;
+  aspect-ratio: 16/9;
+}
+
+main .sae .body .ac-rs .full-acs dialog .justify .trace img {
+  width: 100%;
+  height: 100%;
+}
+
+main .sae .body .ac-rs .full-acs dialog .justify .explanation {
+  font-size: 1.1em;
+  max-width: 60%;
+}
+
+main .sae .body .ac-rs dialog::backdrop {
+  background-color: black;
+  opacity: 0.8;
 }
 
 /* --- ### Home Projects --- */

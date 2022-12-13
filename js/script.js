@@ -131,10 +131,18 @@ const setUpModals = () => {
     let fullElem = document.getElementById(elem.innerText);
     let splits = elem.innerText.split(".");
 
-    fullElem.innerHTML += await fetchAC(splits);
+    fullElem.querySelector(".justify").innerHTML += await fetchAC(splits);
 
     elem.addEventListener("click", () => {
       fullElem.showModal();
+      setTimeout(() => {
+        document.addEventListener("click", (e) => {
+          if (e.target == fullElem) {
+            closeModal(fullElem, false);
+            document.removeEventListener("click");
+          }
+        });
+      }, 500);
     });
   });
 
@@ -143,6 +151,14 @@ const setUpModals = () => {
 
     elem.addEventListener("click", () => {
       fullElem.showModal();
+      setTimeout(() => {
+        document.addEventListener("click", (e) => {
+          if (e.target == fullElem) {
+            closeModal(fullElem, false);
+            document.removeEventListener("click");
+          }
+        });
+      }, 500);
     });
   });
 };
@@ -155,9 +171,13 @@ const fetchAC = async (splits) => {
   });
 };
 
-const closeModal = (element) => {
+const closeModal = (element, parent = true) => {
   if (!SAEContainer) return;
-  element.parentElement.close();
+  if (parent) {
+    element.parentElement.close();
+  } else {
+    element.close();
+  }
 };
 
 const checkNextPrevious = () => {};
@@ -237,9 +257,9 @@ const showOneSAE = () => {
     <div class="head">
       <div>
         <div class="name">${currentSAE}</div>
-        <div class="title">${SAE[currentSAE].titre}</div>
+        <div class=S"title">${SAE[currentSAE].titre}</div>
       </div>
-      <div class="img"><img src="/img/sae/${currentSAE}/1.png" alt="${currentSAE}"></div>
+      <div class="img"><img src="../img/sae/${currentSAE}/1.png" alt="${currentSAE}"></div>
     </div>
     <div class="desc">${SAE[currentSAE].description}</div>
     <ul class="skills">
@@ -260,9 +280,12 @@ const showOneSAE = () => {
   html += `</div><div class="full-acs">`;
   ACKeys.forEach((ac) => {
     html += `<dialog class="ac" id="${ac}">
-                <button onclick="closeModal(this)" class="close-button">XXXX</button>
-                <div class="name">${ac}</div>
-                <div class="desc">${SAE[currentSAE]["AC"][ac]}</div>
+                <button onclick="closeModal(this)" class="close-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                <div class="top">
+                  <div class="name">${ac}</div>
+                  <div class="desc">${SAE[currentSAE]["AC"][ac]}</div>
+                </div>
+                <div class="justify"></div>
               </dialog>`;
   });
   html += `</div><div class="resources">`;
@@ -272,9 +295,11 @@ const showOneSAE = () => {
   html += `</div><div class="full-resources">`;
   RSKeys.forEach((rs) => {
     html += `<dialog class="rs" id="${rs}">
-                <button onclick="closeModal(this)" class="close-button">XXXX</button>
-                <div class="name">${rs}</div>
-                <div class="desc">${SAE[currentSAE]["ressources"][rs]}</div>
+                <button onclick="closeModal(this)" class="close-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                <div class="top">
+                  <div class="name">${rs}</div>
+                  <div class="desc">${SAE[currentSAE]["ressources"][rs]}</div>
+                </div>
               </dialog>`;
   });
   html += `
